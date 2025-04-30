@@ -7,23 +7,27 @@ This log tracks weekly job search and career development activities. Logged acti
 ### Job Applications
 | Date       | Company              | Position                        | Link / Notes                     |
 |------------|----------------------|----------------------------------|----------------------------------|
-| 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
-| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
+| 04/24/2025 | Scribd            | Product Analysis II                     | Uploaded resume + short application process       |
+| 04/30/2025 | ibotta             | Decision Scientist, Client Analytics               | Uploaded resume + cover letter   |
+| 04/30/2025 | tubi             | Decision Scientist            | Uploaded resume + cover letter   |
 
 
-## Week of [April 13 – April 9, 2026]
+## Week of [April 13 – April 19, 2026]
 ### Job Applications
 | Date       | Company              | Position                        | Link / Notes                     |
 |------------|----------------------|----------------------------------|----------------------------------|
 | 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
-| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
+| 04/30/2025 | Upstart             | Research Scientist               | Uploaded resume + + short application process   |
 
 ## Week of [April 20 – April 28, 2026]
 ### Job Applications
 | Date       | Company              | Position                        | Link / Notes                     |
 |------------|----------------------|----------------------------------|----------------------------------|
-| 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
-| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
+| 04/24/2025 | Xpanse            | Product Analysis II                     | Uploaded resume + cover letter + application process           |
+| 04/24/2025 | Scribd            | Product Analysis II                     | Uploaded resume + short application process      |
+| 04/21/2025 | ibotta             | Decision Scientist, Client Analytics               | Uploaded resume + cover letter   |
+| 04/21/2025 | tubi             | Decision Scientist            | Uploaded resume + cover letter   |
+| 04/21/2025 | RFZ             | Market Research Analyst            | Uploaded resume via LinkedIn   |
 
 ## Week of [April 27 – May 3, 2025]
 
