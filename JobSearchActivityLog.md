@@ -3,8 +3,29 @@
 This log tracks weekly job search and career development activities. Logged activities include job applications, skill-building, resume updates, and GitHub project work.
 
 ---
+## Week of [April 6 – April 12, 2026]
+### Job Applications
+| Date       | Company              | Position                        | Link / Notes                     |
+|------------|----------------------|----------------------------------|----------------------------------|
+| 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
+| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
 
-## Week of [April 29 – May 5, 2025]
+
+## Week of [April 13 – April 9, 2026]
+### Job Applications
+| Date       | Company              | Position                        | Link / Notes                     |
+|------------|----------------------|----------------------------------|----------------------------------|
+| 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
+| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
+
+## Week of [April 20 – April 28, 2026]
+### Job Applications
+| Date       | Company              | Position                        | Link / Notes                     |
+|------------|----------------------|----------------------------------|----------------------------------|
+| 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
+| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
+
+## Week of [April 27 – May 3, 2025]
 
 ### Job Applications
 | Date       | Company              | Position                        | Link / Notes                     |
@@ -18,8 +39,11 @@ This log tracks weekly job search and career development activities. Logged acti
 - Reviewed K-Means and Random Forests via [resource/book/course name]
 
 ### Resume & Prep
-- Rewrote bullet points for research experience
-- Streamlined 2-page version to highlight model validation work
+- Resume modifications and length
+  - Shortened from 2 pages to 1 page
+  - Rewrote bullet points for research experience
+- SetUp GitHug repostitory for .io page
+  - continued to add to it during the week
 - Practiced STAR-format interview questions
 
 ### GitHub / Portfolio
