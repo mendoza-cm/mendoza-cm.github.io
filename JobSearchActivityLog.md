@@ -17,7 +17,7 @@ This log tracks weekly job search and career development activities. Logged acti
 | Date       | Company              | Position                        | Link / Notes                     |
 |------------|----------------------|----------------------------------|----------------------------------|
 | 04/24/2025 | Scribd            | Product Analysis II                     | Applied via LinkedIn             |
-| 04/30/2025 | Upstart             | Research Scientist               | Uploaded resume + + short application process   |
+| 04/30/2025 | Upstart             | Research Scientist               | Uploaded resume + short application process   |
 
 ## Week of [April 20 – April 28, 2026]
 ### Job Applications
