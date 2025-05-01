@@ -34,8 +34,8 @@ This log tracks weekly job search and career development activities. Logged acti
 ### Job Applications
 | Date       | Company              | Position                        | Link / Notes                     |
 |------------|----------------------|----------------------------------|----------------------------------|
-| 04/29/2025 | Company A            | Data Analyst                     | Applied via LinkedIn             |
-| 04/30/2025 | Agency B             | Research Scientist               | Uploaded resume + cover letter   |
+| 04/30/2025 | Digitial Ocean            | Data Scientist                     | Applied via LinkedIn             |
+
 
 ### Skill Development
 - Practiced data wrangling in R (e.g., `dplyr`, `tidyr`)
