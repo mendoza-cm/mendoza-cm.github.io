@@ -59,12 +59,20 @@
     
     <section> 
         <h1>Logistic Regression</h1>
-             <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities <var>p</var> :</p> 
+             <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities <var>p</var> : 
 <div class="eq-c">
   <p>\[
 \log\left(\frac{p}{1 - p}\right) = \beta X + \epsilon
 \]</p>
 </div>
+        where <var>\beta</var> = <var>n</var>x<var>\nu</var>+1 matrix: <var>\nu</var> being the number of predictors; <var>p</var> is usually used in place of <var>\nu</var>,
+        but we use <var>\nu</var> here to distinquish it from the probability, <var>p</var> used in our equation. Furthermore, <var>X</var> is a
+     </p>   
+<p>
+    
+</p>
+<p>Logistic regression is often used as a classification tool: at least one cut-point or threshold must be selected that determines which class cases belong to. 
+    For instance, if we choose a logit score that corresponds with a probability of 0.5 as our cut-point, cases found to </p>
     </section>
     <section>
         <h1>Results</h1>
