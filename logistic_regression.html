@@ -33,6 +33,20 @@
         a:hover {
             text-decoration: underline;
         }
+        .fraction {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.fraction .top {
+  display: block;
+  border-bottom: 1px solid #000;
+  padding: 0 0.2em;
+}
+.fraction .bottom {
+  display: block;
+  padding: 0 0.2em;
+}
     </style>
 </head>
 <body>
@@ -43,6 +57,10 @@
         <h1>Logistic Regression</h1>
              <p>Logistic regression is statistical model that models the log-odds of an event in a linear combination of variables.</p> 
         <div class="eq-c">
+            <span class="fraction">
+  <span class="top">p</span>
+  <span class="bottom">1 - p</span>
+</span>
   <div class="fraction">
       <var>log</var>(
      <span class="fup"><var>p</var>
