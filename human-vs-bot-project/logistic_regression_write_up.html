@@ -73,23 +73,20 @@
     
 </p>
 <p>
-    Logistic regression is often used as a classification tool: at least one cut-point or threshold must be selected for this to be possible, to differentiate between classes. 
-    For instance, if we choose a logit score that corresponds with a probability of 0.5 as our cut-point, cases that are run through the model that are
-    found to have a probability at or below 0.5 can be classified into one class and all cases found to have a probability above 0.5 are classified into the 
-    other class. With respect to our Human-vs-Bot project, where we are trying to distinguish between human and bot behavior (isBot == 1) with respect to click rate and click standard deviation,
-    a logit score of zero, corresponding to <var>p</var> = 0.50, or lower could be classified as a human and scores higher than zero, we could classify as bots.</p>
+    Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
+    into class labels. A common choice is 0.5, meaning that cases with predicted probabilities greater than 0.5 are classified as positive (e.g., bots), and those with probabilities 
+    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.r., <var>p</var> > 0.5).</p>
+    would indicate a likely bot.
 
 <p>
-    Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding descriminative and predictive statistics.
-    Descriminative statistics are values such as the false positive rate, true positive rate (sensitivity), false negative rate, and the true negative rate (specificity). The area under
-    the receiver operating characteristic (ROC) curve (AUC) is an excellent measure of a models descriminative ability - it considers all possible cut points: values close to 1 indicate 
-    better descrimination. In our example of simulated data and selected model -- setting the bot type as the outcome of interest, an AUC value between 0 & 1, can be summarized as the 
-    probability that a randomly selected bot has a higher score than a randomly selected human (isBot == 0).
+    Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding discrimination metrics and predictive values.
+    Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
+    false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is ranked 
+    higher than a randomly selected negative case (e.g., human), in terms of predicted probability.
 
-    The predictive values determine the predictive ability of a model, but a cut-point must be chosen: proportion of cases the model correctly identified. In our example,
-    the positive predictive value is the proportion of cases the model correctly identified as bots
-    and the negative predictive value is the proportion of cases the model correctly identified as humans(or not bots): it all depends on the cut-point; otherwise, we
-    cannot determine what class a case was predicted to be.
+    Predictive performance requires selecting a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true positives (i.e., predicted bots 
+    that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that are truly negative (i.e., predicted humans that are actually humans). These 
+    metrics depend on both the cut-point and the underlying class distribution.
 </p>
 <p>
      A decision table is a really good way to organize and consider viable cut-points.  
