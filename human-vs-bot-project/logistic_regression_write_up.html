@@ -72,10 +72,19 @@
 <p>
     
 </p>
-<p>Logistic regression is often used as a classification tool: at least one cut-point or threshold must be selected to differeentiate between classes. 
+<p>
+    Logistic regression is often used as a classification tool: at least one cut-point or threshold must be selected to differentiate between classes. 
     For instance, if we choose a logit score that corresponds with a probability of 0.5 as our cut-point, cases that are run through the model that are
-found to have a probability at or below 0.5 can be classified into one class and all cases found to have a probability above 0.5 are classified into the 
-other class.</p>
+    found to have a probability at or below 0.5 can be classified into one class and all cases found to have a probability above 0.5 are classified into the 
+    other class. With respect to our Human-vs-Bot project, where we are trying to distinguish between human and bot behavior with respect to click rate and click standard deviation,
+    a logit score of zero, corresponding to <var>p</var> = 0.50, or lower could be classified as a human and scores higher than zero, we could classify as bots.</p>
+
+<p>
+    Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding descriminative and predictive statistics.
+    Descriminative statistics are values such as the false positive rate, true positive rate (sensitivity), false negative rate, and the true negative rate (specificity). The area under
+    the receiver operating characteristic (ROC) curve (AUC) is an excellent measure of a models descriminative ability: values close to 1 indicate better descrimination. An AUC value, between
+    0 \& 1, can be summarized as the probability that a randomly selected 
+</p>
     </section>
     <section>
         <h1>Results</h1>
