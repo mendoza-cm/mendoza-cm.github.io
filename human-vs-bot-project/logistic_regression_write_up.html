@@ -66,14 +66,16 @@
 \]</p>
 </div>
         Where \(X\) is an \(n \times (\nu + 1)\) matrix, with \(\nu\) being the number of predictors; <var>p</var> is usually used in place of \(\nu\),
-        but we use \(\nu\) here to distinquish it from the probability, <var>p</var> used in our equation. Furthermore, \(\beta\) is a \((\nu + 1) \times 1\) matrix
-        and both \(Y\) and \(\epsilon\) are both \(n \times 1 \)
+        but we use \(\nu\) here to distinquish it from the probability, <var>p</var>, used in the equation above. Furthermore, \(\beta\) is a \((\nu + 1) \times 1\) matrix
+        and both \(Y\) and \(\epsilon\) are \(n \times 1 \) matrices. 
      </p>   
 <p>
     
 </p>
-<p>Logistic regression is often used as a classification tool: at least one cut-point or threshold must be selected that determines which class cases belong to. 
-    For instance, if we choose a logit score that corresponds with a probability of 0.5 as our cut-point, cases found to </p>
+<p>Logistic regression is often used as a classification tool: at least one cut-point or threshold must be selected to differeentiate between classes. 
+    For instance, if we choose a logit score that corresponds with a probability of 0.5 as our cut-point, cases that are run through the model that are
+found to have a probability at or below 0.5 can be classified into one class and all cases found to have a probability above 0.5 are classified into the 
+other class.</p>
     </section>
     <section>
         <h1>Results</h1>
