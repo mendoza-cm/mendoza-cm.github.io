@@ -62,7 +62,7 @@
              <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities <var>p</var> : 
 <div class="eq-c">
   <p>\[
-\Y = \log\left(\frac{p}{1 - p}\right) = X\beta
+Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 \]</p>
 </div>
         
@@ -70,6 +70,17 @@
     We use \(\nu\) to avoid confusion with <var>p</var>, which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
     and \(Y\) is an \(n \times 1 \) vector of logit scores. 
     </p>
+    <p>
+    Taking the exponential of both sides, we isolate the probability \( p \):
+    </p>
+        <div class="eq-c">
+          <p>\[
+          p = \frac{e^{X\beta}}{1 + e^{X\beta}}
+          \]</p>
+        </div>
+    <p>
+    This is known as the sigmoid or logistic function. It maps the linear combination of inputs into a probability between 0 and 1.
+</p>
 
     <p>
     Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
