@@ -62,13 +62,13 @@
              <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities <var>p</var> : 
 <div class="eq-c">
   <p>\[
-\log\left(\frac{p}{1 - p}\right) = X\beta
+\Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 \]</p>
 </div>
         
     Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where <var>n</var> is the number of observations or cases and with \(\nu\) is the number of predictors (excluding the intercept term).
     We use \(\nu\) to avoid confusion with <var>p</var>, which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
-    and \(Y\) is an \(n \times 1 \) vector of binary outcomes. 
+    and \(Y\) is an \(n \times 1 \) vector of logit scores. 
     </p>
 
     <p>
