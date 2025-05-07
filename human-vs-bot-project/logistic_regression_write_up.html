@@ -59,15 +59,15 @@
     
     <section> 
         <h1>Logistic Regression</h1>
-             <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities <var>p</var> : 
+             <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities \( p \) : 
 <div class="eq-c">
   <p>\[
 Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 \]</p>
 </div>
         
-    Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where <var>n</var> is the number of observations or cases and with \(\nu\) is the number of predictors (excluding the intercept term).
-    We use \(\nu\) to avoid confusion with <var>p</var>, which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
+    Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where \( n \) is the number of observations or cases and with \(\nu\) is the number of predictors (excluding the intercept term).
+    We use \(\nu\) to avoid confusion with \( p \), which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
     and \(Y\) is an \(n \times 1 \) vector of logit scores. 
     </p>
     <p>
@@ -85,7 +85,7 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     <p>
     Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
     into class labels. A common choice is 0.5, meaning that cases with predicted probabilities greater than 0.5 are classified as positive (e.g., bots), and those with probabilities 
-    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., <var>p</var> > 0.5).</p>
+    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., \( p \) > 0.5).</p>
     would indicate a likely bot.
     </p>
 
