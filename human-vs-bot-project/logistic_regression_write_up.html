@@ -65,21 +65,17 @@
 \log\left(\frac{p}{1 - p}\right) = X\beta
 \]</p>
 </div>
-        Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where <var>n</var> is the number of observations or cases and with \(\nu\) is the number of predictors (excluding the intercept term).
-        We use \(\nu\) to avoid confusion with <var>p</var>, which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
-        and \(Y\) is an \(n \times 1 \) vector of binary outcomes. 
-     </p>   
-<p>
-    
-</p>
-<p>
+        
+    Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where <var>n</var> is the number of observations or cases and with \(\nu\) is the number of predictors (excluding the intercept term).
+    We use \(\nu\) to avoid confusion with <var>p</var>, which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
+    and \(Y\) is an \(n \times 1 \) vector of binary outcomes. 
+     
     Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
     into class labels. A common choice is 0.5, meaning that cases with predicted probabilities greater than 0.5 are classified as positive (e.g., bots), and those with probabilities 
     less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., <var>p</var> > 0.5).</p>
     would indicate a likely bot.
 
-</p>
-<p>
+
     Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding discrimination metrics and predictive values.
     Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
     false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is ranked 
@@ -88,8 +84,7 @@
     Predictive performance requires selecting a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true positives (i.e., predicted bots 
     that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that are truly negative (i.e., predicted humans that are actually humans). These 
     metrics depend on both the cut-point and the underlying class distribution.
-</p>
-<p>
+
      A decision table is a really good way to organize and consider viable cut-points.  
 </p>
     </section>
