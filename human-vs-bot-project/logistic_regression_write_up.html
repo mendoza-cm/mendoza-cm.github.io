@@ -85,7 +85,7 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     <p>
     Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
     into class labels. A common choice is 0.5, meaning that cases with predicted probabilities greater than 0.5 are classified as positive (e.g., bots), and those with probabilities 
-    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., \( p \) > 0.5).
+    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., \( p \) > 0.5)
     would indicate a likely bot.
     </p>
 
@@ -104,7 +104,7 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 
     <p></p>
      A decision table is a really good way to organize and consider viable cut-points. It includes the viable cutpoints 
-        (e.g., could look at each 10th - 0..0,0.1,0.2, . . .1 - 1 would indicate that no one is classified into the isBot category and 0 would imply that everyone is.)
+        (e.g., could look at each 10th - 0.0,0.1,0.2, . . .1 - 1 would indicate that no one is classified into the isBot category and 0 would imply that everyone is.)
     </p>
     </section>
     <section>
