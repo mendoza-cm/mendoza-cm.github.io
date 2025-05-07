@@ -66,7 +66,7 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 \]</p>
 </div>
         
-    Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where \( n \) is the number of observations or cases and with \(\nu\) is the number of predictors (excluding the intercept term).
+    Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where \( n \) is the number of observations and \(\nu\) is the number of predictors (excluding the intercept term).
     We use \(\nu\) to avoid confusion with \( p \), which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
     and \(Y\) is an \(n \times 1 \) vector of logit scores. 
     </p>
@@ -85,15 +85,15 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     <p>
     Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
     into class labels. A common choice is 0.5, meaning that cases with predicted probabilities greater than 0.5 are classified as positive (e.g., bots), and those with probabilities 
-    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., \( p \) > 0.5).</p>
+    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., \( p \) > 0.5).
     would indicate a likely bot.
     </p>
 
     <p>
     Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding discrimination metrics and predictive values.
     Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
-    false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is ranked 
-    higher than a randomly selected negative case (e.g., human), in terms of predicted probability.
+    false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is assigned 
+    a higher logit score (predicted probability) than a randomly selected negative case (e.g., human).
     </p>
 
     <p>
@@ -103,7 +103,8 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     </p>
 
     <p></p>
-     A decision table is a really good way to organize and consider viable cut-points.  
+     A decision table is a really good way to organize and consider viable cut-points. It includes the viable cutpoints 
+        (e.g., could look at each 10th - 0..0,0.1,0.2, . . .1 - 1 would indicate that no one is classified into the isBot category and 0 would imply that everyone is.)
     </p>
     </section>
     <section>
