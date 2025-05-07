@@ -86,9 +86,10 @@
     better descrimination. In our example of simulated data and selected model -- setting the bot type as the outcome of interest, an AUC value between 0 & 1, can be summarized as the 
     probability that a randomly selected bot has a higher score than a randomly selected human (isBot == 0).
 
-    The predictive values determine the predictive ability of a model, but a cut-point must be chosen; the positive predictive value is the proportion of cases the model correctly identified
-    as bots: only the cases that are classified as bots are considered. The negative predictive value is the proportion of cases that were correctly 
-    identified as human ( or not bots): it is the num
+    The predictive values determine the predictive ability of a model, but a cut-point must be chosen: proportion of cases the model correctly identified. In our example,
+    the positive predictive value is the proportion of cases the model correctly identified as bots
+    and the negative predictive value is the proportion of cases the model correctly identified as humans(or not bots): it all depends on the cut-point; otherwise, we
+    cannot determine what class a case was predicted to be.
 </p>
 <p>
      A decision table is a really good way to organize and consider viable cut-points.  
