@@ -108,8 +108,13 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     </p>
 
     <p></p>
-     A decision table is a really good way to organize and consider viable cut-points. It includes the viable cutpoints 
-        (e.g., could look at each 10th - 0.0,0.1,0.2, . . .1 - 1 would indicate that no one is classified into the isBot category and 0 would imply that everyone is.)
+    A decision table is a practical tool for evaluating potential cut-points in logistic regression. It lists a range of thresholds (e.g., 0.0, 0.1, 0.2, ..., 1.0 for probabilities--though logit 
+    scores may also be used) alongside key performance metrics such as True Positive Rate (TPR or sensitivity), False Positive Rate (FPR), Positive Predictive Value (PPV), and Negative Predictive 
+    Value (NPV).
+
+    For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
+        classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
+        ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
     </p>
     </section>
     <section>
