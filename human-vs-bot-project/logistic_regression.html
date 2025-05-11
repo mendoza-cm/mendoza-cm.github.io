@@ -99,6 +99,13 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
     false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is assigned 
     a higher logit score (predicted probability) than a randomly selected negative case (e.g., human).
+
+    </p>
+
+    <p>
+        Accuracy is often considered with respect to how well a model works; it summarizes discrimination measures of true positives and true negatives by adding them together and
+        dividing by the total number of cases classified. That is, it is a measure of the proportion of cases that were correctly identified by the model. It is not a measure
+        of how well a model predicts, however. Accuracy reflects overall correctness but doesn't reveal whether the model systematically misclassifies one group.
     </p>
 
     <p>
@@ -113,8 +120,8 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     Value (NPV).
 
     For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
-        classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
-        ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
+    classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
+    ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
     </p>
     </section>
     <section>
