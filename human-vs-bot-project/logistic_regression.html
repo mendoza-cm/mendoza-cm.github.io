@@ -146,7 +146,30 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
             Residual deviance: 774.61  on 558  degrees of freedom
             AIC: 778.61
 
-Number of Fisher Scoring iterations: 4
+            Number of Fisher Scoring iterations: 4
+
+        </pre>
+
+        <pre>
+            Call:
+            glm(formula = isBot ~ rate + sd_inter_click, family = "binomial", 
+            data = training_data)
+
+            Coefficients:
+                   Estimate Std. Error z value Pr(>|z|)    
+            (Intercept)     18.8576     1.6917  11.147   <2e-16 ***
+            rate            -7.9457     0.9557  -8.314   <2e-16 ***
+            sd_inter_click  -1.6746     0.1563 -10.711   <2e-16 ***
+            ---
+            Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+            (Dispersion parameter for binomial family taken to be 1)
+
+            Null deviance: 775.87  on 559  degrees of freedom
+            Residual deviance: 245.69  on 557  degrees of freedom
+            AIC: 251.69
+
+            Number of Fisher Scoring iterations: 7
 
         </pre>
 
