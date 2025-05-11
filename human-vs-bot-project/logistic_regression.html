@@ -134,7 +134,22 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
                 <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/roc_curve.png" alt="ROC Curve" width="600">
             </p>
         <h2>Decision Table</h2>
-            <p>The decision table below displays all predictive and ROC values given the cut-point.</p>
+
+            <p>
+                The decision table below displays all predictive and ROC-based values across a range of cut-points. You may notice that the positive or negative predictive 
+                value (PPV or NPV) appears as NaN (Not a Number) at extreme cut-points of 0 and 1. This is not an error—it’s a mathematically valid result.
+            </p>
+            <p>
+                For example, at a cut-point of 0 (i.e., classifying all cases as bots), no cases are predicted as human. The negative predictive
+                value (NPV) is calculated by assessing all persons no in the 'positive' class (all cases classified as humans), but when we place all cases into the
+                bot class, there are no cases left for asssessment: NVP looks at all cases predicted to not be positive (humans) and places that in the denometer; the
+                numerator consists of cases that not only were predicted--or classified-- by the model at that cutpoint, but that actually were non-positive cases (humans).
+                At a cutpoint of zero, no cases were predicted as human and we are essentially dividing my zero: this gives a NaN value return. 
+
+                This explanation follows for a cutpoint at a probability of 1. The positive predictive value considers all cases in the positive or bot class, but at
+                a cutpoint of one, all cases are classified as human.
+                
+            </p>
             <p style="text-align: center;">
              <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/decision_table_gt.png" alt="ROC Curve" width="600"
                  width="400" 
