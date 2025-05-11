@@ -153,7 +153,7 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
         <pre>
             Call:
             glm(formula = isBot ~ rate + sd_inter_click, family = "binomial", 
-            data = training_data)
+                data = training_data)
 
             Coefficients:
                    Estimate Std. Error z value Pr(>|z|)    
@@ -173,6 +173,12 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 
         </pre>
 
+            <p>
+                In the first model, <em>rate</em> is not statistically significant (p = 0.289). However, when <em>sd_inter_click</em> is included 
+                as a second predictor, both <em>rate</em> and <em>sd_inter_click</em> become highly significant (p &lt; 0.001). Additionally, the 
+                second model's AIC (251.69) is substantially lower than the first model's (778.61), indicating a much better fit. This suggests 
+                that the combination of click rate and variability in click timing provides stronger predictive power than click rate alone.
+            </p>
         <h2>ROC Curve</h2>
 
             <p>The AUC was found to be 0.94</p>
