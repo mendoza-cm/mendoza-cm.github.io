@@ -37,47 +37,56 @@
         a:hover {
             text-decoration: underline;
         }
-        .cartoon-placeholder {
-            border-top: 3px double #ccc;
-            border-bottom: 3px double #ccc;
-            height: 40px;
-            margin: 3rem 0;
-            background: repeating-linear-gradient(
-                45deg,
-                #aaa,
-                #aaa 5px,
-                #eee 5px,
-                #eee 10px
-            );
-        }
-        .coming-soon {
-            text-align: center;
-            font-style: italic;
-            color: #999;
-            margin-top: 1rem;
-            font-size: 1rem;
-        }
+        .main-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.project-list {
+    flex: 2;
+}
+
+.cartoon {
+    flex: 1;
+    max-width: 300px;
+}
+
+.cartoon img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
     </style>
 </head>
 <body>
+    <div class="main-container">
+        <div class="project-list">
+            <h1>Christina Mendoza</h1>
+            <h2>My GitHub Projects</h2>
 
-    <h1>Christina Mendoza</h1>
-    <h2>My GitHub Projects</h2>
+            <h3><a href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/README.md" target="_blank">Human vs. Bot: A Classification Problem</a></h3>
+            <ul>
+                <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/simulating_data.html" target="_blank">Simulating Data</a></li>
+                <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/logistic_regression.html" target="_blank">Logistic Regression Model</a></li>
+                <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/machine_learning.html" target="_blank">Other Machine Learning Models</a></li>
+            </ul>
 
-    <h3><a href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/README.md" target="_blank">Human vs. Bot: A Classification Problem</a></h3>
-    <ul>
-        <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/simulating_data.html" target="_blank">Simulating Data</a></li>
-        <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/logistic_regression.html" target="_blank">Logistic Regression Model</a></li>
-        <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/machine_learning.html" target="_blank">Other Machine Learning Models</a></li>
-    </ul>
+            <h3><a href="https://github.com/mendoza-cm/GroupRiskScoreDifferences/blob/main/README.md" target="_blank">2016 ASC Shiny App</a></h3>
+            <ul>
+                <li><a href="https://app-1.shinyapps.io/Noise/" target="_blank">Interactive 2016 ASC Conference App</a></li>
+            </ul>
 
-    <h3><a href="https://github.com/mendoza-cm/GroupRiskScoreDifferences/blob/main/README.md" target="_blank">2016 ASC Shiny App</a></h3>
-    <ul>
-        <li><a href="https://app-1.shinyapps.io/Noise/" target="_blank">Interactive 2016 ASC Conference App</a></li>
-    </ul>
+            <div class="coming-soon">Cartoon coming soon... A brief commentary on confused family dynamics and machine learning..</div>
+        </div>
 
-    <div class="cartoon-placeholder"></div>
-    <div class="coming-soon">Cartoon coming soon... A brief commentary on confused family dynamics and machine learning..</div>
-
+        <div class="cartoon">
+            <img src="myCartoon.png" alt="Cartoon of confused family and ML" />
+        </div>
+    </div>
 </body>
+
 </html>
