@@ -78,6 +78,9 @@
             Random forests are ensembles of decision trees that reduce overfitting by averaging predictions across many trees, each trained on a bootstrap sample and a random subset of features. 
             This approach naturally captures nonlinear relationships and variable interactions. Because random forests use bagging, you can also estimate performance directly on the training set 
             via out-of-bag (OOB) samples.
+
+            Random Forests is not as sensitive as SVM with respect to scaling predictors and not including those with multi-collinearity. We compare RF models with two predictors vs all possible 
+            predictors, but we would not recommend doing this in practice: throw in the entire kitchen sink every time with random forests.
         </p>
     </section>
 
