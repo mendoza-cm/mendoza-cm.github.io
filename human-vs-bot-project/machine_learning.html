@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Logistic Regression</title>
+    <title>Machine Learning</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,13 +62,23 @@
     
     <section> 
         <h1>Machine Learning</h1>
-        <p>Although logistic regression models fall under the umbrella of Machine Learning, many people don't realize it because they're often taught in a traditional statistics context. However, they are widely used in supervised classification tasks—just like the models below.</p>
+        <p>
+            Although logistic regression models fall under the umbrella of Machine Learning, many people don't realize it because they're often taught in a traditional statistics context. 
+            However, they are widely used in supervised classification tasks—just like the models below.</p>
         
         <h2>Support Vector Machines (SVM)</h2>
-        <p>SVMs work by finding the hyperplane that best separates classes. With non-linear kernels, they can handle complex decision boundaries. In this project, we compared performance to logistic regression using accuracy and AUC.</p>
+        <p>
+            SVMs calculate the maximal-margin hyperplane that best separates classes in feature space. By choosing a non-linear kernel (e.g. radial or polynomial), they can learn complex decision boundaries. 
+            Although SVMs are inherently binary classifiers, they can be extended to multiclass problems via schemes like one-vs-rest (OvR) or one-vs-one (OvO), where multiple SVM models are trained 
+            and their outputs combined either by selecting the highest decision-function score or by majority vote. In this project, we compared SVM performance (using linear, radial, and polynomial 
+            kernels) to logistic regression, evaluating accuracy.</p>
 
         <h2>Random Forests (RF)</h2>
-        <p>Random Forests are ensembles of decision trees that reduce overfitting by averaging predictions across many trees. They can capture nonlinear relationships and variable interactions well. Feature importance scores were also extracted.</p>
+        <p>
+            Random forests are ensembles of decision trees that reduce overfitting by averaging predictions across many trees, each trained on a bootstrap sample and a random subset of features. 
+            This approach naturally captures nonlinear relationships and variable interactions. Because random forests use bagging, you can also estimate performance directly on the training set 
+            via out-of-bag (OOB) samples.
+        </p>
     </section>
 
     <section>
