@@ -245,9 +245,23 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
           Accuracy = \frac{tp + tn}{n}
           \]</p>
         </div>
+
+        From the table below, we can verify what is in the decision table above. 
     
-       
-     
+       <div class="eq-c">
+          <p>\[
+          Accuracy = \frac{110 + 109}{240}\\
+                     = 0.9125
+          \]</p>
+        </div>
+
+        The positive predictive value is computed by dividing the number of correct classifications by the number of cases the model predicted as bots:
+     <div class="eq-c">
+          <p>\[
+          PPV = \frac{tp + tn}}{129}\\
+                     = 0.8527
+          \]</p>
+        </div>
                 
         <p style="text-align: center;">
              <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/confusionMatrix.png" alt="Confusion Matrix" width="600"
