@@ -19,6 +19,5 @@ The PNG files in each of the sections, simulating data, logistic regression, and
   responses when accessing a website.</li>
   <li>Logistic regression</li>
   <li>[Other] machine learning methods</li>
-
-    </ul>
+</ul>
 </p>
