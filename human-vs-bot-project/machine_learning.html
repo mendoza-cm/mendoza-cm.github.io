@@ -86,6 +86,16 @@
 
     <section>
         <h1>Results</h1>
+        We developed a total of eight SVM and two RF models. Since SVM is sensitive to multicollinear data, we started off with using the two
+        predictors that produced good results for logistic regression; 5 variables were included in the first RF model:
+            <ul>
+                <li>rate</li>
+                <li>sd_inter_response</li>
+                <li>duration</li>
+                <li>mean_inter_response</li>
+                <li>responses_per_session</li>
+                
+            </ul>
        <p style="text-align: center;">
              <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/classifier_comparison.png" alt="ML Results" width="600"
                  width="400" 
