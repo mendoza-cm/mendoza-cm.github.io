@@ -15,6 +15,6 @@ Each section: simulating data, logistic regression, and machine learning, includ
     <li><strong>Data simulation</strong> - we did not scrape a webpage, but instead created functions that would produce data that might reflect human and bot behavior or 
   response times when accessing a website.</li>
   <li><strong>Logistic regression</strong> - once the data is prepped, we use logisitc regrssion for prediction and review criteria for validation.</li>
-  <li>[Other] machine learning methods - we consider SVM and RF, invoking kernels and comparing methods.</li>
+  <li><strong>[Other] machine learning methods</strong> - we consider SVM and RF, invoking kernels and comparing methods.</li>
 </ul>
 </p>
