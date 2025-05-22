@@ -12,9 +12,8 @@ Each section: simulating data, logistic regression, and machine learning, includ
   The project is organized into three parts: 
   
   <ul>
-    <li><strong>Data simulation</strong> - we did not scrape a webpage, but instead created functions that would produce data that might reflect human and bot behavior or 
-  response times when accessing a website.</li>
-  <li><strong>Logistic regression</strong> - once the data is prepped, we use logisitc regrssion for prediction and review criteria for validation.</li>
-  <li><strong>[Other] machine learning methods</strong> - we consider SVM and RF, invoking kernels and comparing methods.</li>
+    <li><strong>Data simulation</strong> - Rather than scraping real web data, we created functions to simulate patterns that might reflect typical human and bot response behavior.</li>
+  <li><strong>Logistic regression</strong> - Once the data is prepared, we use logistic regression to classify user type and assess model performance.</li>
+  <li><strong>[Other] machine learning methods</strong> - We compare logistic regression to Support Vector Machines (SVM) and Random Forest (RF) models, examining predictive performance and interpretability.</li>
 </ul>
 </p>
