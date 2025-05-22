@@ -61,14 +61,25 @@
 <body>
     
     <section> 
-        <h1>Simulating Data</h1>
-        <p>Although there are many avenues for downloading data, simulating data is a viable options expecially for improving R skills.</p>
+        <h1>Data Simulating and Modeling Prep</h1>
+        <p>The functions used for data simulation produce variables that are not model ready. In this document, we go over the functions in detail and describe the process we took to arrive
+        at the humn-vs-bot modeling data.</p>
+
+        <p>There are four funcitons we uitilze for the human-vs-bot data:
+            <ul>
+                <li>human_startTimes</li>
+                <li>human_timesDistributionDF</li>
+                <li>bot_startTimes</li>
+                <li>bot_timesDistributionDF</li>
+            </ul>
+        The *_startTimes for bots and humans are anagolous - they have differnt response behavior time distributions
+        </p>
         
-        <h2>Human Data Funtions</h2>
-        <p>Time between clicks follow a normal distribution.</p>
+        <h2>_startTimes Funcitons</h2>
+        <p>Time between responses follow a normal distribution.</p>
 
         <h2>Bot Data Functions</h2>
-        <p>Time between clicks follow an exponential distribution.</p>
+        <p>Time between responses follow an exponential distribution.</p>
     </section>
 
     <section>
