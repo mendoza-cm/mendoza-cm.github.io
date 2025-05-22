@@ -131,8 +131,8 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
         <h1>Results</h1>
 
         <h2>Model Selection</h2>
-        We fit two logistic models for our data: one using only the predictor, click rate (<em>rate</em>), and another using both, click rate and 
-        standard deviation of inter-click times (<em>rate</em> & <em>sd_inter_click</em>).
+        We fit two logistic models for our data: one using only the predictor, response rate (<em>rate</em>), and another using both, response rate and 
+        standard deviation of inter-response times (<em>rate</em> & <em>sd_inter_response</em>).
 
         <pre>
             Call:
@@ -155,14 +155,14 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
 
         <pre>
             Call:
-            glm(formula = isBot ~ rate + sd_inter_click, family = "binomial", 
+            glm(formula = isBot ~ rate + sd_inter_response, family = "binomial", 
                 data = training_data)
 
             Coefficients:
                    Estimate Std. Error z value Pr(>|z|)    
             (Intercept)     18.8576     1.6917  11.147   <2e-16 ***
             rate            -7.9457     0.9557  -8.314   <2e-16 ***
-            sd_inter_click  -1.6746     0.1563 -10.711   <2e-16 ***
+            sd_inter_response  -1.6746     0.1563 -10.711   <2e-16 ***
             ---
             Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -177,21 +177,21 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
         </pre>
 
             <p>
-                In the first model, <em>rate</em> is not statistically significant (p = 0.289). However, when <em>sd_inter_click</em> is included 
-                as a second predictor, both <em>rate</em> and <em>sd_inter_click</em> become highly significant (p &lt; 0.001). Additionally, the 
+                In the first model, <em>rate</em> is not statistically significant (p = 0.289). However, when <em>sd_inter_response</em> is included 
+                as a second predictor, both <em>rate</em> and <em>sd_inter_response</em> become highly significant (p &lt; 0.001). Additionally, the 
                 second model's AIC (251.69) is substantially lower than the first model's (778.61), indicating a much better fit. This suggests 
-                that the combination of click rate and variability in click timing provides stronger predictive power than click rate alone.
+                that the combination of response rate and variability in response timing provides stronger predictive power than response rate alone.
 
                 Thus, our final model is:
             </p>
 
                 <div class="eq-c">
                   <p>\[
-                    \log\left(\frac{p}{1 - p}\right) \approx -7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_click}
+                    \log\left(\frac{p}{1 - p}\right) \approx -7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}
                 \]</p>
                   </div>
 
-               That  is, the logit score for a new cases is \(7.95\times\)<code>rate</code> added to \(-1.67\times\)<code>sd_inter_click</code>.
+               That  is, the logit score for a new cases is \(7.95\times\)<code>rate</code> added to \(-1.67\times\)<code>sd_inter_response</code>.
                 This can be re-written
         <h2>ROC Curve</h2>
 
@@ -224,7 +224,7 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
             <p>
                 Once a cutpoint is selected, a confusion matrix can be constructed. A confusion matrix is a two by two table of the outcomes:
                 predicted outcomes and actual outcomes. The outcomes are with respect to what our model was predicting, in this case, human or
-                bot click behavior. In each cell of the 2x2 table is a count: the true positive and true negative are on the diagnol and false negatives
+                bot response behavior. In each cell of the 2x2 table is a count: the true positive and true negative are on the diagnol and false negatives
                 and false positives on the other corners.
             </p>
 <table align="center" border="1" cellpadding="8" cellspacing="0">
