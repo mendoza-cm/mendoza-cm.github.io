@@ -72,14 +72,17 @@
                 <li>bot_startTimes</li>
                 <li>bot_timesDistributionDF</li>
             </ul>
-        The *_startTimes for bots and humans are anagolous - they have differnt response behavior time distributions
+        The *_startTimes for bots and humans are anagolous as are the *_timesdistributionDF functions,
+        except the second pair. have differnt response behavior time distributions
         </p>
         
         <h2>_startTimes Funcitons</h2>
-        <p>Time between responses follow a normal distribution.</p>
+        <p>These functions are anagoulous, they create for each human and bot a unique pair of ids: case and session depending on a start time.</p>
 
-        <h2>Bot Data Functions</h2>
-        <p>Time between responses follow an exponential distribution.</p>
+        <h2>_timesdistributionDF</h2>
+        <p>
+            Time between responses follow a normal distribution for the human functions while the time between responses follow an exponential distribution 
+            for bots.</p>
     </section>
 
     <section>
