@@ -202,13 +202,20 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
                 \]</p>
                   </div>
 
-               That  is, the logit score for a new cases is \(7.95\) times their response <code>rate</code> plus \(-1.67\) times their response standard deviation 
+               That  is, the logit score for a new cases is \(7.95\) times their response rate plus \(-1.67\) times their response standard deviation 
                 (<code>sd_inter_response</code>).
                 This can be re-written in terms of probability as seen above:
                 <p>\[p = \frac{e^{-7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}}}{1 + e^{-7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}}}\]</p>
         <h2>ROC Curve</h2>
 
-            <p>The AUC was found to be 0.94</p>
+            <p>
+                Using the description above, with an AUC of 0.94, we can say that 94% of the time, when we randomly select one bot and one human case, the model assigns 
+                a higher score to the bot. But what counts as a “good” AUC depends a lot on what you're modeling.
+
+                Take recidivism: regular recidivism is difficult to predict, and violent recidivism is more difficult. So an AUC of 0.6 in that context might be acceptable, 
+                depending on what's at risk.
+
+                But for something like human vs. bot response behavior, an AUC of 0.94 is—at the very least—pretty solid.</p>
             <p style="text-align: center;">
                 <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/roc_curve.png" alt="ROC Curve" width="600">
             </p>
