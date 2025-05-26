@@ -5,8 +5,12 @@
     <title>Christina Mendoza | GitHub Projects</title>
     <style>
         body {
-            max-width: max-content;
-            margin: auto;
+            <div class="vine-background">
+            <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+            <path d="M0 200 Q 150 100 300 200 T 600 200 T 900 200" fill="none" stroke="#a4cba4" stroke-width="2" />
+            </svg>
+            </div>
+
         }
         h1 {
             color: #8f0e0a;
@@ -62,6 +66,34 @@
     border-radius: 8px;
 }
     </style>
+
+<style>
+.vine-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: #f9f9f9; /* or any subtle background */
+}
+
+.vine-background svg {
+  width: 200%;
+  height: 200%;
+  animation: vine-wiggle 12s infinite alternate ease-in-out;
+}
+
+@keyframes vine-wiggle {
+  0% {
+    transform: translateX(-5%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(5%) rotate(0.3deg);
+  }
+}
+</style>
 </head>
 <body class="centered-wrapper">
     <div class="main-container" >
