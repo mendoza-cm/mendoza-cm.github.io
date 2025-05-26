@@ -37,13 +37,27 @@
             margin: 0.8rem 0;
         }
         a {
-            color: #39EFF8;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Link color inside h3 headers */
+h3 a {
+    color: #218889;
+}
+
+/* Link color inside list items */
+ul a {
+    color: #39EFF8;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for list links */
+ul a:hover {
+    color: #7CFFFF;
+    text-decoration: underline;
+}
+
         .main-container {
     display: flex;
     gap: 2rem;
