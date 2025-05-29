@@ -78,69 +78,6 @@
     </p>
     <section> 
         <h1>Logistic Regression</h1>
-             <p>Logistic regression models the log-odds of an event as a linear combination of variables; the odds can be re-written in terms of probabilities \( p \) : 
-<div class="eq-c">
-  <p>\[
-Y = \log\left(\frac{p}{1 - p}\right) = X\beta
-\]</p>
-</div>
-        
-    Here, \(X\) is an \(n \times (\nu + 1)\) matrix, where \( n \) is the number of observations and \(\nu\) is the number of predictors (excluding the intercept term).
-    We use \(\nu\) to avoid confusion with \( p \), which denotes the predicted probability in logistic regression. In this model, \(\beta\) is a \((\nu + 1) \times 1\) vector of coefficients,
-    and \(Y\) is an \(n \times 1 \) vector of logit scores. 
-    </p>
-    <p>
-    Taking the exponential of both sides, we isolate the probability \( p \):
-    </p>
-        <div class="eq-c">
-          <p>\[
-          p = \frac{e^{X\beta}}{1 + e^{X\beta}}
-          \]</p>
-        </div>
-    <p>
-    This is known as the sigmoid or logistic function. It maps the linear combination of inputs into a probability between 0 and 1.
-</p>
-
-    <p>
-    Logistic regression is often used as a classification tool. To use logistic regression as a classifier, we must choose a threshold or cut-point to convert predicted probabilities 
-    into class labels. A common choice is 0.5, meaning that cases with predicted probabilities greater than 0.5 are classified as positive (e.g., bots), and those with probabilities 
-    less than or equal to 0.5 as negative (e.g., humans). In our Human-vs-Bot project, we define bots as the positive class (isBot == 1), so a logit score above 0 (i.e., \( p \) > 0.5)
-    would indicate a likely bot.
-    </p>
-
-    <p>
-    Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding discrimination metrics and predictive values.
-    Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
-    false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is assigned 
-    a higher logit score (predicted probability) than a randomly selected negative case (e.g., human).
-
-    </p>
-
-    <p>
-        Accuracy is often considered with respect to how well a model works; it summarizes discrimination measures of true positives and true negatives by adding them together and
-        dividing by the total number of cases classified. That is, it is a measure of the proportion of cases that were correctly identified by the model. It is not a measure
-        of how well a model predicts, however. Accuracy reflects overall correctness but doesn't reveal whether the model systematically misclassifies one group.
-    </p>
-
-    <p>
-    Predictive performance requires selecting a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true positives (i.e., predicted bots 
-    that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that are truly negative (i.e., predicted humans that are actually humans). These 
-    metrics depend on both the cut-point and the underlying class distribution.
-    </p>
-
-    <p>
-    A decision table is a practical tool for evaluating potential cut-points in logistic regression. It lists a range of thresholds (e.g., 0.0, 0.1, 0.2, ..., 1.0 for probabilities--though logit 
-    scores may also be used) alongside key performance metrics such as True Positive Rate (TPR or sensitivity), False Positive Rate (FPR), Positive Predictive Value (PPV), and Negative Predictive 
-    Value (NPV).
-
-    For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
-    classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
-    ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
-    </p
-
-
-
-
 <p>
 Logistic regression models the log-odds of an event as a linear combination of variables. For a single observation, the model is:
 </p>
@@ -179,7 +116,35 @@ Solving for \(p\), we get:
 <p>
 This sigmoid function maps the linear predictor to a probability between 0 and 1. To classify observations, we apply a threshold—commonly 0.5—on \(p\). In our Human-vs-Bot project, we define bots as the positive class (\( \text{isBot} = 1 \)), so a probability above 0.5 indicates a likely bot.
 </p>
+<p>
+    Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding discrimination metrics and predictive values.
+    Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
+    false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is assigned 
+    a higher logit score (predicted probability) than a randomly selected negative case (e.g., human).
 
+    </p>
+
+    <p>
+        Accuracy is often considered with respect to how well a model works; it summarizes discrimination measures of true positives and true negatives by adding them together and
+        dividing by the total number of cases classified. That is, it is a measure of the proportion of cases that were correctly identified by the model. It is not a measure
+        of how well a model predicts, however. Accuracy reflects overall correctness but doesn't reveal whether the model systematically misclassifies one group.
+    </p>
+
+    <p>
+    Predictive performance requires selecting a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true positives (i.e., predicted bots 
+    that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that are truly negative (i.e., predicted humans that are actually humans). These 
+    metrics depend on both the cut-point and the underlying class distribution.
+    </p>
+
+    <p>
+    A decision table is a practical tool for evaluating potential cut-points in logistic regression. It lists a range of thresholds (e.g., 0.0, 0.1, 0.2, ..., 1.0 for probabilities--though logit 
+    scores may also be used) alongside key performance metrics such as True Positive Rate (TPR or sensitivity), False Positive Rate (FPR), Positive Predictive Value (PPV), and Negative Predictive 
+    Value (NPV).
+
+    For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
+    classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
+    ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
+    </p
 
 
 
