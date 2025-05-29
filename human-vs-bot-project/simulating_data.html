@@ -41,26 +41,42 @@
             text-decoration: underline;
         }
         .fraction {
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-        }
-        .fraction .top {
-            display: block;
-            border-bottom: 1px solid #000;
-            padding: 0 0.2em;
-        }
-        .fraction .bottom {
-            display: block;
-            padding: 0 0.2em;
-        }
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.fraction .top {
+  display: block;
+  border-bottom: 1px solid #000;
+  padding: 0 0.2em;
+}
+.fraction .bottom {
+  display: block;
+  padding: 0 0.2em;
+}
+        table, th, td {
+  border:1px solid black;
+}
     </style>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
+    <div style="text-align: left; margin-bottom: 2rem;">
+    <h1 style="font-size: 2.5rem; color: #444;">Human-vs-Bot</h1>
+  </div>
+    <p>
+    This is the second part of the Human-vs-Bot project. After simulating data that resembled plausible human and bot response 
+    behavior—using normal and exponential distributions, respectively—I explored whether the groups could be distinguished using 
+    statistical models. We begin with logistic regression.
+
+    While the distributions were chosen for their simplicity and intuitive fit, I don’t assume they reflect real-world response patterns.
+    My goal was to test whether, in principle, such differences could be detected. The results sparked further questions: with enough data, 
+    how subtle a difference can be detected? How significant are those findings, and what level of power is needed?
+    </p>
+    <section> 
     
     <section> 
         <h1>Data Simulating and Modeling Prep</h1>
