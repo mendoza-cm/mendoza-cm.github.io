@@ -114,15 +114,27 @@ Solving for \(p\), we get:
 </div>
 
 <p>
-This sigmoid function maps the linear predictor to a probability between 0 and 1. To classify observations, we apply a threshold—commonly 0.5—on \(p\). In our Human-vs-Bot project, we define bots as the positive class (\( \text{isBot} = 1 \)), so a probability above 0.5 indicates a likely bot.
+    This sigmoid function maps the linear predictor to a probability between 0 and 1. To classify observations, we apply a threshold—commonly 0.5—on \(p\). In our Human-vs-Bot project, we define 
+    bots as the positive class (\( \text{isBot} = 1 \)), so a probability above 0.5 indicates a likely bot.
 </p>
+<div>
+    <h3>
+        Threshold determination
+    </h3>
+    <p>
+        <p>
+            Deciding where to place a cut-point is not always straightforward. Often, it's important to evaluate several candidate thresholds and consider how the model performs at each. 
+            This includes examining classification metrics such as sensitivity (true positive rate), specificity (true negative rate), and predictive values. These metrics are all defined 
+            relative to a particular threshold.
+</p>
+
 <p>
-    Deciding where to place a cut-point is not always easy. In many cases, it is imperative to look at several cut-points and their corresponding discrimination metrics and predictive values.
-    Discrimination metrics help us assess a model’s ability to distinguish between the two classes, independent of any specific cut-point. These include the true positive rate (sensitivity), 
-    false positive rate, and the area under the receiver operating characteristic (ROC) curve (AUC). AUC measures the probability that a randomly selected positive case (e.g., bot) is assigned 
-    a higher logit score (predicted probability) than a randomly selected negative case (e.g., human).
+To assess overall model discrimination independent of any specific cut-point, we use the area under the receiver operating characteristic (ROC) curve, or AUC. AUC represents the probability that a randomly selected positive case (e.g., bot) will be assigned a higher predicted probability than a randomly selected negative case (e.g., human).
+</p>
 
     </p>
+</div>
+        
 
     <p>
         Accuracy is often considered with respect to how well a model works; it summarizes discrimination measures of true positives and true negatives by adding them together and
