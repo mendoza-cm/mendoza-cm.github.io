@@ -136,7 +136,54 @@ Y = \log\left(\frac{p}{1 - p}\right) = X\beta
     For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
     classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
     ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
-    </p>
+    </p
+
+
+
+
+<p>
+Logistic regression models the log-odds of an event as a linear combination of variables. For a single observation, the model is:
+</p>
+
+<div class="eq-c">
+  <p>\[
+  \log\left(\frac{p_i}{1 - p_i}\right) = x_i^\top \beta
+  \]</p>
+</div>
+
+<p>
+Here, \(x_i\) is a vector of input features for the \(i^{th}\) observation, and \(p_i\) is the predicted probability that the outcome equals 1 for that observation.
+Across all \(n\) observations, we can write this compactly as:
+</p>
+
+<div class="eq-c">
+  <p>\[
+  \log\left(\frac{p}{1 - p}\right) = X\beta
+  \]</p>
+</div>
+
+<p>
+where \(X\) is an \(n \times (\nu + 1)\) matrix of inputs, \(\beta\) is a \((\nu + 1) \times 1\) coefficient vector, and \(p\) is an \(n \times 1\) vector of predicted probabilities.
+</p>
+
+<p>
+Solving for \(p\), we get:
+</p>
+
+<div class="eq-c">
+  <p>\[
+  p = \frac{e^{X\beta}}{1 + e^{X\beta}}
+  \]</p>
+</div>
+
+<p>
+This sigmoid function maps the linear predictor to a probability between 0 and 1. To classify observations, we apply a threshold—commonly 0.5—on \(p\). In our Human-vs-Bot project, we define bots as the positive class (\( \text{isBot} = 1 \)), so a probability above 0.5 indicates a likely bot.
+</p>
+
+
+
+
+        
     </section>
     <section>
         <h1>Results</h1>
