@@ -68,7 +68,7 @@
     <h1 style="font-size: 2.5rem; color: #444;">Human-vs-Bot</h1>
   </div>
     <p>
-    This is the second part of the Human-vs-Bot project. After simulating data that resembled plausible human and bot response 
+    <!--This is the second part of the Human-vs-Bot project. After simulating data that resembled plausible human and bot response 
     behavior—using normal and exponential distributions, respectively—I explored whether the groups could be distinguished using 
     statistical models. We begin with logistic regression.</p>
 
@@ -80,6 +80,22 @@
     <p>
     With real-world response behavior often inaccessible or noisy, simulated data allows us to isolate and examine whether bots and humans 
     might be distinguishable under controlled assumptions.
+    </p>-->
+
+    <p>
+        This is the second part of the Human-vs-Bot project. After simulating data that captured plausible human and bot response behavior—using 
+        normal and exponential distributions, respectively—we tested whether the two groups could be reliably distinguished using statistical models.
+    </p>
+    <p>
+        With real-world response behavior often inaccessible or noisy, simulation allowed us to explore this problem under controlled, idealized conditions. 
+        The goal was not to mirror real-world data perfectly, but to determine whether, in principle, the types of differences we assumed could be detected.
+    </p>
+    <p>
+        This exploration raised further questions: How subtle a difference can be detected with sufficient data? How significant must the signal be? And what 
+        level of statistical power would we need to feel confident in real-world applications?
+    </p>
+    <p>
+        To begin addressing these questions, we start with logistic regression—a well-established baseline model that offers interpretability and simplicity.
     </p>
     <section> 
         <h1>Logistic Regression</h1>
