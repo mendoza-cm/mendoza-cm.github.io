@@ -41,78 +41,75 @@
             text-decoration: underline;
         }
         .fraction {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-}
-.fraction .top {
-  display: block;
-  border-bottom: 1px solid #000;
-  padding: 0 0.2em;
-}
-.fraction .bottom {
-  display: block;
-  padding: 0 0.2em;
-}
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 0.2em;
+        }
+        .fraction .bottom {
+            display: block;
+            padding: 0 0.2em;
+        }
         table, th, td {
-  border:1px solid black;
-}
+            border: 1px solid black;
+        }
     </style>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 <body>
     <div style="text-align: left; margin-bottom: 2rem;">
-    <h1 style="font-size: 2.5rem; color: #444;">Human-vs-Bot</h1>
-  </div>
-    <p>
-    This is the first part of the Human-vs-Bot project. Data was simulted and prepped for modeling. We go over the functions
-        created to simulated data and perform anlysis.
-    </p>
-    <section> 
+        <h1 style="font-size: 2.5rem; color: #444;">Human-vs-Bot</h1>
+    </div>
     
+    <p>
+        This is the first part of the Human-vs-Bot project. Here, we simulate data to mimic plausible behavioral differences between human and bot users—focusing specifically on response timing patterns. We walk through the functions used to generate and clean the data, with the goal of producing a dataset suitable for classification modeling.
+    </p>
+
     <section> 
-        <h1>Data Simulating and Modeling Prep</h1>
-        <p>The functions used for data simulation produce variables that are not model ready. In this document, we go over the functions in detail and describe the process we took to arrive
-        at the humn-vs-bot modeling data. There is much room for improvemnet and modifications to allow more unique data.</p>
-
-        <p>There are four functions we uitilze for the human-vs-bot data:
-            <ul>
-                <li>human_startTimes</li>
-                <li>human_timesDistributionDF</li>
-                <li>bot_startTimes</li>
-                <li>bot_timesDistributionDF</li>
-            </ul>
-        The *_startTimes for bots and humans are anagolous as are the *_timesdistributionDF functions,
-        except the second pair. have differnt response behavior time distributions
-        </p>
-        
-        <h2>_startTimes Functions</h2>
-        <p>These functions are anagoulous, they create for each human and bot a unique pair of ids: case and session depending on a start time.</p>
-
-        <h2>_timesdistributionDF</h2>
+        <h1>Data Simulation and Preparation</h1>
         <p>
-            Time between responses follow a normal distribution for the human functions while the time between responses follow an exponential distribution 
-            for bots.</p>
+            The functions we use generate synthetic user session data, but the raw output isn’t immediately ready for modeling. In this section, we explain how the simulated data is structured and describe the key steps we took to clean and prepare it for analysis.
+        </p>
+
+        <p>
+            There are four core functions in this process:
+            <ul>
+                <li><code>human_startTimes</code></li>
+                <li><code>human_timesDistributionDF</code></li>
+                <li><code>bot_startTimes</code></li>
+                <li><code>bot_timesDistributionDF</code></li>
+            </ul>
+            The <code>_startTimes</code> functions create session identifiers and assign start times for each user, while the <code>_timesDistributionDF</code> functions simulate time-stamped responses. Human response intervals are drawn from a normal distribution, while bot responses follow an exponential distribution.
+        </p>
+
+        <h2>Start Time Generation</h2>
+        <p>
+            The <code>_startTimes</code> functions are structurally similar for both humans and bots. Each function assigns a unique user ID and generates session IDs based on simulated start times.
+        </p>
+
+        <h2>Response Time Distributions</h2>
+        <p>
+            Humans are simulated with more variable and normally distributed response intervals, while bots produce faster, more consistent responses following an exponential distribution. These assumptions are deliberately simple—they are not meant to reflect real-world bot detection methods but to illustrate how even basic behavioral patterns can be used to construct predictive models.
+        </p>
     </section>
 
     <section>
         <h1>Results</h1>
-       <p style="text-align: center;">
-             <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/human_vs_bot_rate10_histograms.png" alt="Histograms" width="600"
-                 width="400" 
-                 height="500">
-            </p>
-
+        <p style="text-align: center;">
+            <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/human_vs_bot_rate10_histograms.png" alt="Histograms" width="600">
+        </p>
 
         <p style="text-align: center;">
-             <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/python/visualizations/scatterPlot_sdRate_yLabels.png" alt="Scatter Plot" width="600"
-                 width="400" 
-                 height="500">
-            </p>
+            <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/python/visualizations/scatterPlot_sdRate_yLabels.png" alt="Scatter Plot" width="600">
+        </p>
     </section>
-    
+
 </body>
 </html>
