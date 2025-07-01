@@ -288,6 +288,20 @@ Solving for \(p\), we get:
             <p style="text-align: center;">
                 <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/roc_curve.png" alt="ROC Curve" width="600">
             </p>
+
+            <p>
+            As mentioned earlier, AUC is a threshold-independent measure. It evaluates the model’s ability to distinguish between classes by plotting 
+            sensitivity (recall) against the false positive rate (1 - specificity) across all possible thresholds. While this provides a useful summary of 
+            discrimination, it doesn’t reflect how the model performs at any specific cut-point. 
+            </p>
+
+<p>
+    In practice, classification models are often used to make discrete predictions—such as labeling a case as "bot" or "human"—and this requires 
+    selecting a threshold. Once a cut-point is chosen, we can assess the model's predictive performance using metrics like precision, recall, and 
+    predictive values. These metrics are dependent on that chosen threshold and offer a more practical view of how the model behaves in real-world 
+    decision-making.
+</p>
+
         <h2>Decision Table</h2>
 
             <p>
