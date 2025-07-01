@@ -263,10 +263,18 @@ Solving for \(p\), we get:
                 \]</p>
                   </div>
 
-               That  is, the logit score for a new cases is \(7.95\) times their response rate plus \(-1.67\) times their response standard deviation 
+               That  is, the logit score for a new case is \(7.95\) times their response rate plus \(-1.67\) times their response standard deviation 
                 (<code>sd_inter_response</code>).
                 This can be re-written in terms of probability as seen above:
                 <p>\[p = \frac{e^{-7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}}}{1 + e^{-7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}}}\]</p>
+
+            <p>
+            This is just one model built using one method among many possible options. Before using it to support forecasting or decision-making, 
+            we need to evaluate how well it generalizes to new data. This logistic model was trained on one portion of the data; we now assess its performance 
+            on an independent test set. While more advanced techniques—such as k-fold cross-validation—can be used during training to improve robustness, 
+            we do not cover those in this project.
+        </p>
+
         <h2>ROC Curve</h2>
 
             <p>
