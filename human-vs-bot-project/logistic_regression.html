@@ -366,20 +366,31 @@ To assess overall model discrimination independent of any specific cut-point, we
             While logistic regression is interpretable and effective for linearly separable data, it has several limitations that are worth addressing:
         </p>
         <ul>
-            <li><strong>Linearity Assumption:</strong> Logistic regression assumes a linear relationship between the input variables and the log-odds of the response. This may not hold true if the data contains complex or nonlinear patterns, in which case more flexible models like tree-based methods might perform better.</li>
+            <li><strong>Linearity Assumption:</strong> Logistic regression assumes a linear relationship between the input variables and the log-odds of the response. This may not 
+                hold true if the data contains complex or nonlinear patterns, in which case more flexible models like tree-based methods might perform better.</li>
 
-            <li><strong>Multicollinearity:</strong> Strong correlation between predictors can destabilize coefficient estimates, making interpretation difficult and potentially reducing model performance. Diagnostic checks or dimensionality reduction techniques (e.g., PCA) may be needed in such cases.</li>
+            <li><strong>Multicollinearity:</strong> Strong correlation between predictors can destabilize coefficient estimates, making interpretation difficult and potentially 
+                reducing model performance. Diagnostic checks or dimensionality reduction techniques (e.g., PCA) may be needed in such cases.</li>
 
-            <li><strong>Overfitting:</strong> Including too many features, especially irrelevant ones, can lead to overfitting. Regularization methods like L1 (Lasso) and L2 (Ridge) penalize large coefficients to help prevent this. However, we did not include regularization in the current model. A future extension of this project could incorporate regularized logistic regression to assess whether prediction improves or model coefficients become more robust.</li>
+            <li><strong>Overfitting:</strong> Including too many features, especially irrelevant ones, can lead to overfitting. Regularization methods like L1 (Lasso) and L2 
+                (Ridge) penalize large coefficients to help prevent this. However, we did not include regularization in the current model. A future extension of this project 
+                could incorporate regularized logistic regression to assess whether prediction improves or model coefficients become more robust.</li>
 
-            <li><strong>Threshold Sensitivity:</strong> While the ROC and AUC provide threshold-independent measures of discrimination, real-world decision-making depends on choosing a cut-point. Model performance can vary substantially depending on the threshold selected, especially in imbalanced datasets.</li>
+            <li><strong>Threshold Sensitivity:</strong> While the ROC and AUC provide threshold-independent measures of discrimination, real-world decision-making depends on choosing 
+                a cut-point. Model performance can vary substantially depending on the threshold selected, especially in imbalanced datasets.</li>
 
-            <li><strong>Simulated Data:</strong> The data used here are synthetic. While they were generated to reflect plausible response behaviors, real-world data may introduce noise, variability, and distributional characteristics that this model hasn’t accounted for. Applying this model to real data would require recalibration and validation.</li>
+            <li><strong>Simulated Data:</strong> The data used here are synthetic. While they were generated to reflect plausible response behaviors, real-world data may introduce noise, 
+                variability, and distributional characteristics that this model hasn’t accounted for. Applying this model to real data would require recalibration and validation.</li>
 
             <li><strong>Scalability:</strong> Logistic regression scales well to larger datasets, but with high-dimensional features or extremely large data volumes, specialized tools (e.g., stochastic gradient descent implementations, Spark MLlib) may be needed to ensure efficient computation.</li>
         </ul>
         <p>
             Despite these limitations, logistic regression remains a strong baseline and a valuable tool for understanding model behavior. Enhancing this model with regularization and evaluating on more complex or realistic datasets are natural next steps.
+        </p>
+
+
+        <p>
+            While this page focuses on logistic regression, alternative classifiers (e.g., SVMs, Random Forests) may handle nonlinear or higher-dimensional patterns better—especially in real-world data.
         </p>
     </section>
 </body>
