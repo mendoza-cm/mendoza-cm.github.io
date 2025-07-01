@@ -139,66 +139,65 @@ Solving for \(p\), we get:
     bots as the positive class (\( \text{isBot} = 1 \)), so a probability above a threshold of 0.5 indicates a likely bot.
 </p>
 <div>
-    <h3>
-        Threshold determination
-    </h3>
-    <p>
-        <p>
-            <p>
-                Deciding where to place a cut-point is not always straightforward. A cut-point determines which cases get classified as positive—that is, which logit score 
-                (and associated probability) <em>best</em> separates the two classes. In our model, this means deciding what score most effectively distinguishes a human from a 
-                bot. How can we maximize predictive accuracy?
-</p>
 
-        <p>
-            Often, it's important to evaluate several candidate thresholds and assess how the model performs at each. This includes examining classification metrics such 
-            as sensitivity (true positive rate), specificity (true negative rate), and predictive values. All of these metrics are defined relative to a particular threshold.
-        </p>
 
+
+<h3>Threshold determination</h3>
+
+<p>
+    Deciding where to place a cut-point is not always straightforward. A cut-point determines which cases get classified as positive—that is, 
+    which logit score (and associated probability) <em>best</em> separates the two classes. In our model, this means deciding what score most 
+    effectively distinguishes a human from a bot. How can we maximize predictive accuracy?
 </p>
 
 <p>
-To assess overall model discrimination independent of any specific cut-point, we use the area under the receiver operating characteristic (ROC) curve, or AUC. AUC represents the 
-    probability that a randomly selected positive case (e.g., bot) will be assigned a higher predicted probability than a randomly selected negative case (e.g., human).
+    Often, it's important to evaluate several candidate thresholds and assess how the model performs at each. This involves examining classification 
+    metrics such as sensitivity (true positive rate), specificity (true negative rate), and predictive values. All of these metrics are defined 
+    relative to a particular threshold.
 </p>
 
-    </p>
-</div>
-        
+<p>
+    To assess overall model discrimination independent of any specific cut-point, we use the area under the receiver operating characteristic (ROC) 
+    curve, or AUC. AUC represents the probability that a randomly selected positive case (e.g., bot) will be assigned a higher predicted probability 
+    than a randomly selected negative case (e.g., human).
+</p>
 
-    <p>
-        Accuracy is often considered with respect to how well a model works; it summarizes discrimination measures of true positives and true negatives by adding them together and
-        dividing by the total number of cases classified. That is, it is a measure of the proportion of cases that were correctly identified by the model. It is not a measure
-        of how well a model predicts, however. Accuracy reflects overall correctness but doesn't reveal whether the model systematically misclassifies one group.
-    </p>
+<p>
+    Accuracy, often mistaken for predictive performance, summarizes the proportion of correctly classified cases—true positives and true negatives 
+    combined—divided by the total number of cases. However, it doesn’t tell us whether the model systematically misclassifies one group more than the other.
+</p>
 
-    <p>
-    Predictive performance requires selecting a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true positives (i.e., predicted bots 
-    that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that are truly negative (i.e., predicted humans that are actually humans). These 
-    metrics depend on both the cut-point and the underlying class distribution. The positive predictive value is usually referred to as <em>precision</em> in the context of classification and 
-    machine learning. Furthermore, <em>recall</em> is often used when refering to the true positive rate.
-    </p>
+<p>
+    Predictive performance requires a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true 
+    positives (i.e., predicted bots that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that 
+    are truly negative (i.e., predicted humans that actually are humans). These metrics depend both on the chosen threshold and the underlying class 
+    distribution. In machine learning contexts, PPV is often called <em>precision</em>, and sensitivity is referred to as <em>recall</em>.
+</p>
 
-    <p>
-    A decision table is a practical tool for evaluating potential cut-points in logistic regression. It lists a range of thresholds (e.g., 0.0, 0.1, 0.2, ..., 1.0 for probabilities--though logit 
-    scores may also be used) alongside key performance metrics such as True Positive Rate (TPR; sensitivity; recall), False Positive Rate (FPR), Positive Predictive Value (PPV; precision), and 
-    Negative Predictive Value (NPV).
+<p>
+    A decision table is a practical tool for comparing potential cut-points. It lists a range of thresholds (e.g., 0.0, 0.1,..., 1.0 for probabilities—though 
+    logit scores may also be used) alongside key metrics such as True Positive Rate (TPR; sensitivity; recall), False Positive Rate (FPR), Positive Predictive Value 
+    (PPV; precision), and Negative Predictive Value (NPV).
+</p>
 
-    For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
-    classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
-    ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives. It is generally acceptable to use a threshold of 0.50--a probability
-    greater than 0.50 classifies a case into the isBot category and we use that threshold below to examine tje predictive ability of our logistic model.
-    </p
+<p>
+    For instance, a cut-point of 0.0 classifies all cases as bots, maximizing TPR but also FPR, which results in low PPV due to many false positives. A cut-point 
+    of 1.0 classifies no cases as bots, yielding both TPR and FPR of 0, and high NPV—but no positive predictions. Intermediate thresholds like 0.5 attempt to balance 
+    these metrics.
+</p>
+
+<p>
+    The optimal cut-point depends on project priorities—whether it’s more important to detect bots or to minimize false positives. For this project, we use a 
+    conventional threshold of 0.5: probabilities greater than 0.5 classify a case as a bot. This threshold will be used below to construct a confusion matrix 
+    and evaluate predictive performance.
+</p>
+
+<p>
+    To further explore classification beyond logistic regression—including models with more flexible decision boundaries and different learning biases—see the 
+    <a href="https://mendoza-cm.github.io/human-vs-bot-project/machine_learning.html" target="_blank">Machine Learning</a> section.
+</p>
 
 
-    <p>
-     To further explore classification beyond logistic regression, including models with more flexible decision boundaries and different learning biases, see the 
-     <a href="https://mendoza-cm.github.io/human-vs-bot-project/machine_learning.html" target="_blank">Machine Learning</a> section.
-    </p>
-
-
-        
-    </section>
     <section>
         <h1>Results</h1>
 
