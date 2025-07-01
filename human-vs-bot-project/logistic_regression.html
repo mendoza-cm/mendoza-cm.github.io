@@ -164,11 +164,12 @@ Solving for \(p\), we get:
 
 <p>
     Accuracy, often mistaken for predictive performance, summarizes the proportion of correctly classified cases—true positives and true negatives 
-    combined—divided by the total number of cases. However, it doesn’t tell us whether the model systematically misclassifies one group more than the other.
+    combined—divided by the total number of cases. However, it doesn’t indicate whether the model systematically misclassifies one group more than 
+    the other, and it can be especially misleading when one class is much smaller than the other.
 </p>
 
 <p>
-    Predictive performance requires a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true 
+    Predictive performance requires a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are actual 
     positives (i.e., predicted bots that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that 
     are truly negative (i.e., predicted humans that actually are humans). These metrics depend both on the chosen threshold and the underlying class 
     distribution. In machine learning contexts, PPV is often called <em>precision</em>, and sensitivity is referred to as <em>recall</em>.
