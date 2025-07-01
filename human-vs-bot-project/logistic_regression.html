@@ -41,22 +41,22 @@
             text-decoration: underline;
         }
         .fraction {
-          display: inline-block;
-          text-align: center;
-          vertical-align: middle;
-        }
-        .fraction .top {
-          display: block;
-          border-bottom: 1px solid #000;
-          padding: 0 0.2em;
-        }
-        .fraction .bottom {
-          display: block;
-          padding: 0 0.2em;
-        }
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.fraction .top {
+  display: block;
+  border-bottom: 1px solid #000;
+  padding: 0 0.2em;
+}
+.fraction .bottom {
+  display: block;
+  padding: 0 0.2em;
+}
         table, th, td {
-          border:1px solid black;
-        }
+  border:1px solid black;
+}
     </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
@@ -67,28 +67,294 @@
     <div style="text-align: left; margin-bottom: 2rem;">
     <h1 style="font-size: 2.5rem; color: #444;">Human-vs-Bot</h1>
   </div>
-    <!-- main content omitted for brevity -->
+    <p>
+    This is the second part of the Human-vs-Bot project. After simulating data that resembled plausible human and bot response 
+    behavior—using normal and exponential distributions, respectively—I explored whether the groups could be distinguished using 
+    statistical models. We begin with logistic regression.
+
+    While the distributions were chosen for their simplicity and intuitive fit, I don’t assume they reflect real-world response patterns.
+    My goal was to test whether, in principle, such differences could be detected. The results sparked further questions: with enough data, 
+    how subtle a difference can be detected? How significant are those findings, and what level of power is needed?
+    </p>
+    <section> 
+        <h1>Logistic Regression</h1>
+<p>
+Logistic regression models the log-odds of an event as a linear combination of variables. For a single observation, the model is:
+</p>
+
+<div class="eq-c">
+  <p>\[
+  \log\left(\frac{p_i}{1 - p_i}\right) = x_i^\top \beta
+  \]</p>
+</div>
+
+<p>
+Here, \(x_i\) is a vector of input features for the \(i^{th}\) observation, and \(p_i\) is the predicted probability that the outcome equals 1 for that observation.
+Across all \(n\) observations, we can write this compactly as:
+</p>
+
+<div class="eq-c">
+  <p>\[
+  \log\left(\frac{p}{1 - p}\right) = X\beta
+  \]</p>
+</div>
+
+<p>
+where \(X\) is an \(n \times (\nu + 1)\) matrix of inputs, \(\beta\) is a \((\nu + 1) \times 1\) coefficient vector, and \(p\) is an \(n \times 1\) vector of predicted probabilities.
+</p>
+
+<p>
+Solving for \(p\), we get:
+</p>
+
+<div class="eq-c">
+  <p>\[
+  p = \frac{e^{X\beta}}{1 + e^{X\beta}}
+  \]</p>
+</div>
+
+<p>
+    This sigmoid function maps the linear predictor to a probability between 0 and 1. To classify observations, we apply a threshold—commonly 0.5—on \(p\). In our Human-vs-Bot project, we define 
+    bots as the positive class (\( \text{isBot} = 1 \)), so a probability above 0.5 indicates a likely bot.
+</p>
+<div>
+    <h3>
+        Threshold determination
+    </h3>
+    <p>
+        <p>
+            <p>
+                Deciding where to place a cut-point is not always straightforward. A cut-point determines which cases get classified as positive—that is, which logit score 
+                (and associated probability) <em>best</em> separates the two classes. In our model, this means deciding what score most effectively distinguishes a human from a 
+                bot. How can we maximize predictive accuracy?
+</p>
+
+        <p>
+            Often, it's important to evaluate several candidate thresholds and assess how the model performs at each. This includes examining classification metrics such 
+            as sensitivity (true positive rate), specificity (true negative rate), and predictive values. All of these metrics are defined relative to a particular threshold.
+        </p>
+
+</p>
+
+<p>
+To assess overall model discrimination independent of any specific cut-point, we use the area under the receiver operating characteristic (ROC) curve, or AUC. AUC represents the 
+    probability that a randomly selected positive case (e.g., bot) will be assigned a higher predicted probability than a randomly selected negative case (e.g., human).
+</p>
+
+    </p>
+</div>
+        
+
+    <p>
+        Accuracy is often considered with respect to how well a model works; it summarizes discrimination measures of true positives and true negatives by adding them together and
+        dividing by the total number of cases classified. That is, it is a measure of the proportion of cases that were correctly identified by the model. It is not a measure
+        of how well a model predicts, however. Accuracy reflects overall correctness but doesn't reveal whether the model systematically misclassifies one group.
+    </p>
+
+    <p>
+    Predictive performance requires selecting a specific cut-point. The positive predictive value (PPV) is the proportion of predicted positives that are true positives (i.e., predicted bots 
+    that actually are bots), while the negative predictive value (NPV) is the proportion of predicted negatives that are truly negative (i.e., predicted humans that are actually humans). These 
+    metrics depend on both the cut-point and the underlying class distribution.
+    </p>
+
+    <p>
+    A decision table is a practical tool for evaluating potential cut-points in logistic regression. It lists a range of thresholds (e.g., 0.0, 0.1, 0.2, ..., 1.0 for probabilities--though logit 
+    scores may also be used) alongside key performance metrics such as True Positive Rate (TPR or sensitivity), False Positive Rate (FPR), Positive Predictive Value (PPV), and Negative Predictive 
+    Value (NPV).
+
+    For instance, a cut-point of 0.0 classifies all cases as bots (isBot = 1), which maximizes TPR but also FPR, resulting in low PPV due to many false positives. In contrast, a cut-point of 1.0 
+    classifies no cases as bots, yielding TPR = 0 and FPR = 0, with high NPV but no positive predictions. Intermediate thresholds like 0.5 aim to balance these metrics. The optimal cut-point 
+    ultimately depends on the project’s priorities—such as whether it's more important to detect bots or minimize false positives.
+    </p
+
+
+
+        
+    </section>
+    <section>
+        <h1>Results</h1>
+
+        <h2>Model Selection</h2>
+        We fit two logistic models for our data: one using only the predictor, response rate (<em>rate</em>), and another using both, response rate and 
+        standard deviation of inter-response times (<em>rate</em> & <em>sd_inter_response</em>).
+
+        <pre>
+            Call:
+            glm(formula = isBot ~ rate, family = "binomial", data = training_data)
+
+            Coefficients:
+                    Estimate Std. Error z value Pr(>|z|)
+            (Intercept) 0.003402   0.098073   0.035    0.972
+            rate        0.214539   0.202490   1.060    0.289
+
+            (Dispersion parameter for binomial family taken to be 1)
+
+            Null deviance: 775.87  on 559  degrees of freedom
+            Residual deviance: 774.61  on 558  degrees of freedom
+            AIC: 778.61
+
+            Number of Fisher Scoring iterations: 4
+
+        </pre>
+
+        <pre>
+            Call:
+            glm(formula = isBot ~ rate + sd_inter_response, family = "binomial", 
+                data = training_data)
+
+            Coefficients:
+                   Estimate Std. Error z value Pr(>|z|)    
+            (Intercept)     18.8576     1.6917  11.147   <2e-16 ***
+            rate            -7.9457     0.9557  -8.314   <2e-16 ***
+            sd_inter_response  -1.6746     0.1563 -10.711   <2e-16 ***
+            ---
+            Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+            (Dispersion parameter for binomial family taken to be 1)
+
+            Null deviance: 775.87  on 559  degrees of freedom
+            Residual deviance: 245.69  on 557  degrees of freedom
+            AIC: 251.69
+
+            Number of Fisher Scoring iterations: 7
+
+        </pre>
+
+            <p>
+                In the first model, <em>rate</em> is not statistically significant (p = 0.289). However, when <em>sd_inter_response</em> is included 
+                as a second predictor, both <em>rate</em> and <em>sd_inter_response</em> become highly significant (p &lt; 0.001). Additionally, the 
+                second model's AIC (251.69) is substantially lower than the first model's (778.61), indicating a much better fit. This suggests 
+                that the combination of response rate and variability in response timing provides stronger predictive power than response rate alone.
+
+                Thus, our final model is:
+            </p>
+
+                <div class="eq-c">
+                  <p>\[
+                    \log\left(\frac{p}{1 - p}\right) \approx -7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}
+                \]</p>
+                  </div>
+
+               That  is, the logit score for a new cases is \(7.95\) times their response rate plus \(-1.67\) times their response standard deviation 
+                (<code>sd_inter_response</code>).
+                This can be re-written in terms of probability as seen above:
+                <p>\[p = \frac{e^{-7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}}}{1 + e^{-7.95\cdot\text{rate} - 1.67\cdot\text{sd_inter_response}}}\]</p>
+        <h2>ROC Curve</h2>
+
+            <p>
+                Using the description above, with an AUC of 0.94, we can say that 94% of the time, when we randomly select one bot and one human case, the model assigns 
+                a higher score to the bot. But what counts as a “good” AUC depends a lot on what you're modeling.
+
+                Take recidivism: regular recidivism is difficult to predict, and violent recidivism is more difficult. So an AUC of 0.6 in that context might be acceptable, 
+                depending on what's at risk.
+
+                But for something like human vs. bot response behavior, an AUC of 0.94 is—at the very least—pretty solid.</p>
+            <p style="text-align: center;">
+                <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/roc_curve.png" alt="ROC Curve" width="600">
+            </p>
+        <h2>Decision Table</h2>
+
+            <p>
+                The decision table below displays all predictive and ROC-based values across a range of cut-points. 
+            </p>
+                If we choose a probability of 0.5 (probability scores strictly above 0.5) as the cut-off for classification, then we can expect 
+                that 85% of the cases classified as bots are indeed bots — this is the positive predictive value (PPV). The negative predictive 
+                value (NPV) of 0.98 indicates that 98% of the cases predicted to be human are actually human. This implies a false negative rate 
+                of 2% among predicted humans — that is, 2% of those classified as human are actually bots.
+            <p>
+                
+                
+            </p>
+            <p style="text-align: center;">
+             <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/decision_table_gt.png" alt="ROC Curve" width="600"
+                 width="400" 
+                 height="500">
+            </p>
+            <p>
+                You may notice that the positive or negative predictive 
+                value (PPV or NPV) appears as NaN (Not a Number) at extreme cut-points of 0 and 1. This is not an error—it’s a mathematically valid result.
+                For example, at a cut-point of 0 (i.e., classifying all cases as bots), no cases are predicted as human. The negative predictive value (NPV) 
+                is defined as the proportion of predicted negative (humans) that are actually negative. When we place all cases into the positive class 
+                (bot class), there are no cases left for asssessment: the NVP calculation considers the number of cases predicted as human. At a cutpoint of zero, 
+                no cases were predicted (classified) as human—they are are classified as bots—and we are essentially dividing my zero: resulting in an undefined value (NaN) 
+
+                The same logic applies at a cut-point of 1, where all cases are classified as human. In this case, PPV becomes undefined because there are no predicted positives 
+                (bots), leaving the denominator in the PPV formula equal to zero.
+            </p>
+
+            <p>
+                Once a cutpoint is selected, a confusion matrix can be constructed. A confusion matrix is a two by two table of the outcomes:
+                predicted outcomes and actual outcomes. The outcomes are with respect to what our model was predicting, in this case, human or
+                bot response behavior. In each cell of the 2x2 table is a count: the true positive and true negative are on one diagnol and false negatives
+                and false positives on the other daignol.
+            </p>
+<table align="center" border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th></th>
+    <th>Actual: Human</th>
+    <th>Actual: Bot</th>
+  </tr>
+  <tr>
+    <th>Predicted: Human</th>
+    <td>True Positive</td>
+    <td>False Negative</td>
+  </tr>
+  <tr>
+    <th>Predicted: Bot</th>
+    <td>False Positive</td>
+    <td>True Negative</td>
+  </tr>
+</table>
+
+</p>
+        <p>
+            We constructed a confusion matrix in R using a cut-off of 0.5. That is, if we classify cases with model 
+            scores at or below 0.5 as human, and those above 0.5 as bots, the resulting confusion table appears as follows.
+        </p>
+                <p style="text-align: center;">
+             <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/confusionMatrix.png" alt="Confusion Matrix" width="600"
+                 width="100" 
+                 height="250">
+         </p>
+
+
+        <p>
+            Accuracy is the total number of correct classifications (true positives + true negatives) divided by the total number of cases.
+
+            </p>
+        <div class="eq-c">
+          <p>\[
+          Accuracy = \frac{tp + tn}{n}
+          \]</p>
+        </div>
+
+        From the table above, we can verify what is in the decision table above. 
+    
+       <div class="eq-c">
+          <p>\[
+          Accuracy = \frac{110 + 109}{240}\\
+                     = 0.9125
+          \]</p>
+        </div>
+
+        The positive predictive value is computed by dividing the number of correct classifications by the number of cases the model predicted as bots:
+     <div class="eq-c">
+          <p>\[
+          PPV = \frac{tp + tn}{129}
+                     = 0.8527
+          \]</p>
+        </div>
+                
+        
+    </section>
+    <p>
+        The negative predictive value, false positive, and false positive rates can also be calculated from the confusion trable.
+    </p>
 
     <section>
         <h1>Limitations</h1>
         <p>
-            While logistic regression is interpretable and effective for linearly separable data, it has several limitations that are worth addressing:
-        </p>
-        <ul>
-            <li><strong>Linearity Assumption:</strong> Logistic regression assumes a linear relationship between the input variables and the log-odds of the response. This may not hold true if the data contains complex or nonlinear patterns, in which case more flexible models like tree-based methods might perform better.</li>
-
-            <li><strong>Multicollinearity:</strong> Strong correlation between predictors can destabilize coefficient estimates, making interpretation difficult and potentially reducing model performance. Diagnostic checks or dimensionality reduction techniques (e.g., PCA) may be needed in such cases.</li>
-
-            <li><strong>Overfitting:</strong> Including too many features, especially irrelevant ones, can lead to overfitting. Regularization methods like L1 (Lasso) and L2 (Ridge) penalize large coefficients to help prevent this. However, we did not include regularization in the current model. A future extension of this project could incorporate regularized logistic regression to assess whether prediction improves or model coefficients become more robust.</li>
-
-            <li><strong>Threshold Sensitivity:</strong> While the ROC and AUC provide threshold-independent measures of discrimination, real-world decision-making depends on choosing a cut-point. Model performance can vary substantially depending on the threshold selected, especially in imbalanced datasets.</li>
-
-            <li><strong>Simulated Data:</strong> The data used here are synthetic. While they were generated to reflect plausible response behaviors, real-world data may introduce noise, variability, and distributional characteristics that this model hasn’t accounted for. Applying this model to real data would require recalibration and validation.</li>
-
-            <li><strong>Scalability:</strong> Logistic regression scales well to larger datasets, but with high-dimensional features or extremely large data volumes, specialized tools (e.g., stochastic gradient descent implementations, Spark MLlib) may be needed to ensure efficient computation.</li>
-        </ul>
-        <p>
-            Despite these limitations, logistic regression remains a strong baseline and a valuable tool for understanding model behavior. Enhancing this model with regularization and evaluating on more complex or realistic datasets are natural next steps.
+            Lasso and ridge regression are two regularization techniques that add a penalty term to the cost function during model fitting.
         </p>
     </section>
 </body>
