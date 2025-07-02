@@ -77,9 +77,13 @@
     <h1 style="font-size: 2.5rem; color: #444;">Human-vs-Bot</h1>
   </div>
 
-    This is the third installment of the Human-vs-Bot project. The project begins by simulating response behavior, generating data uniquely identified by user 
-    and session IDs. Response times are timestamped and drawn from distinct distributions to reflect plausible differences between human and bot activity. In part 
-    two, we developed baseline logistic regression models to evaluate the separability of these groups.
+
+    <p>
+        This is the third installment of the Human-vs-Bot project. We began by simulating response behavior and generating timestamped data using distinct time 
+        distributions to reflect plausible differences between human and bot activity. In part two, we used logistic regression to explore how separable the two 
+        groups were. Here, we extend our modeling by applying Support Vector Machines and Random Forests to the same task.
+</p>
+
     
     
     <section> 
@@ -112,18 +116,24 @@
     <section>
         <h1>Results</h1>
     <p>
-      We developed eight SVM models and two Random Forest models. Since SVMs are sensitive to multicollinearity, we initially used the two predictors that performed well in logistic regression. The first Random Forest model included five predictors:
-    </p>
-    <ul>
-      <li>rate</li>
-      <li>sd_inter_response</li>
-      <li>duration</li>
-      <li>mean_inter_response</li>
-      <li>responses_per_session</li>
-    </ul>
+    We developed eight SVM models and two Random Forest models. Since SVMs can be sensitive to multicollinearity, we began by using the two predictors that had performed well in 
+        logistic regression. The first Random Forest model included five predictors:
+</p>
+<ul>
+    <li><code>rate</code></li>
+    <li><code>sd_inter_response</code></li>
+    <li><code>duration</code></li>
+    <li><code>mean_inter_response</code></li>
+    <li><code>responses_per_session</code></li>
+</ul>
+
     <img src="https://raw.githubusercontent.com/mendoza-cm/Human-vs-Bot/main/visualizations/classifier_comparisonUpdated.png" alt="Classifier Comparison Chart">
   </section>
     </section>
+<p style="text-align: center; font-style: italic; color: #666;">
+    Figure: Classifier performance by accuracy and AUC across models using both reduced and full feature sets.
+</p>
+
     
 </body>
 </html>
