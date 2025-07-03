@@ -70,13 +70,15 @@
     </div>
     
     <p>
-        This is the first part of the Human-vs-Bot project. Here, we simulate data to mimic plausible behavioral differences between human and bot users—focusing specifically on response timing patterns. We walk through the functions used to generate and clean the data, with the goal of producing a dataset suitable for classification modeling.
+        This is the first part of the Human-vs-Bot project. Here, we simulate data to mimic plausible behavioral differences between human and bot users—focusing specifically 
+        on response timing patterns. We walk through the functions used to generate and clean the data, with the goal of producing a dataset suitable for classification modeling.
     </p>
 
     <section> 
         <h1>Data Simulation and Preparation</h1>
         <p>
-            The functions we use generate synthetic user session data, but the raw output isn’t immediately ready for modeling. In this section, we explain how the simulated data is structured and describe the key steps we took to clean and prepare it for analysis.
+            The functions we use generate synthetic user session data, but the raw output isn’t immediately ready for modeling. In this section, we explain how the simulated 
+            data is structured and describe the key steps we took to clean and prepare it for analysis.
         </p>
 
         <p>
@@ -87,7 +89,8 @@
                 <li><code>bot_startTimes</code></li>
                 <li><code>bot_timesDistributionDF</code></li>
             </ul>
-            The <code>_startTimes</code> functions create session identifiers and assign start times for each user, while the <code>_timesDistributionDF</code> functions simulate time-stamped responses. Human response intervals are drawn from a normal distribution, while bot responses follow an exponential distribution.
+            The <code>_startTimes</code> functions create session identifiers and assign start times for each user, while the <code>_timesDistributionDF</code> functions simulate 
+            time-stamped responses. Human response intervals are drawn from a normal distribution, while bot responses follow an exponential distribution.
         </p>
 
         <h2>Start Time Generation</h2>
@@ -97,7 +100,8 @@
 
         <h2>Response Time Distributions</h2>
         <p>
-            Humans are simulated with more variable and normally distributed response intervals, while bots produce faster, more consistent responses following an exponential distribution. These assumptions are deliberately simple—they are not meant to reflect real-world bot detection methods but to illustrate how even basic behavioral patterns can be used to construct predictive models.
+            Humans are simulated with more variable and normally distributed response intervals, while bots produce faster, more consistent responses following an exponential distribution. 
+            These assumptions are deliberately simple—they are not meant to reflect real-world bot detection methods but to illustrate how even basic behavioral patterns can be used to construct predictive models.
         </p>
 
         <h2>Feature Development</h2>
@@ -111,7 +115,8 @@
     <li><code>time</code></li>
 </ul>
 <p>
-    Each <code>id</code> and <code>session_id</code> pair includes multiple timestamps representing individual user actions. The <code>type</code> (human or bot) is consistent within a session. From this base, we engineered five features: four for modeling and one primarily for visualization. 
+    Each <code>id</code> and <code>session_id</code> pair includes multiple timestamps representing individual user actions. The <code>type</code> (human or bot) is consistent within a session. 
+    From this base, we engineered five features: four for modeling and one primarily for visualization. 
 </p>
 <ul>
     <li><code>responses_per_session</code></li>
@@ -121,8 +126,16 @@
     <li><code>inter_response</code></li>
 </ul>
 <p>
-    While earlier drafts referred to <code>clicks_per_session</code>, we transitioned to <code>responses_per_session</code> to better capture varied user input—such as mouse movement, screen touches, or scrolling. This broader definition reflects the kind of behaviors we'd expect in realistic sessions and leaves room for richer analysis in future iterations.
+    While earlier drafts referred to <code>clicks_per_session</code>, we transitioned to <code>responses_per_session</code> to better capture varied user input—such as 
+    mouse movement, screen touches, or scrolling. This broader definition reflects the kind of behaviors we'd expect in realistic sessions and leaves room for richer 
+    analysis in future iterations.
 </p>
+
+    <p>
+        <code>responses_per_session</code> was determined by the number of unique times, or rows per id and session_id. <code>duration</code> was determined
+        by ordering the rows with respect to the time column and calculating the distince between the last time and first time by id and session_id. The
+        remaining feature calculations can be found in the R project <a href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/simulateData_andPrepUpdated.R">simulateData_andPrepUpdated.R</a>
+    </p>
 
     </section>
 
