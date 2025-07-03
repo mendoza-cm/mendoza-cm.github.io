@@ -33,13 +33,14 @@
         li {
             margin: 1rem 0;
         }
-        a {
-            color: #575959;
+        a.subtle-link {
+            color: #777;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
-        a:hover {
+        a.subtle-link:hover {
             text-decoration: underline;
+            color: #444;
         }
         .fraction {
             display: inline-block;
@@ -134,7 +135,7 @@
     <p>
         <code>responses_per_session</code> was determined by the number of unique times, or rows per id and session_id. <code>duration</code> was determined
         by ordering the rows with respect to the time column and calculating the distince between the last time and first time by id and session_id. The
-        remaining feature calculations can be found in the R project <a href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/simulateData_andPrepUpdated.R">simulateData_andPrepUpdated.R</a>
+        remaining feature calculations can be found in the R project <a class="subtle-link" href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/simulateData_andPrepUpdated.R">simulateData_andPrepUpdated.R</a>
     </p>
 
     </section>
