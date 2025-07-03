@@ -108,18 +108,19 @@
         <h2>Feature Development</h2>
 <p>
     The functions above generate data with four key columns:
-</p>
+
 <ul>
     <li><code>id</code></li>
     <li><code>session_id</code></li>
     <li><code>type</code></li>
     <li><code>time</code></li>
 </ul>
-<p>
-    Each <code>id</code> and <code>session_id</code> pair includes multiple timestamps representing individual user actions. The <code>type</code> (human or bot) is consistent within a session. 
-    From this base, we engineered five features: four for modeling and one primarily for visualization. 
-</p>
-<ul>
+
+    Each <code>id</code> and <code>session</code> combination has multiple response time entries. The <code>type</code> (bot or human) 
+    is also constant per session. From this, we derived five additional features. Four are used in classification models, and one supports 
+    visualization. One key feature is the number of responses per session. While an earlier version referred to this as <code>clicks_per_session</code>, 
+    we updated the terminology to <em>responses</em> to better reflect varied input behavior across users.
+    </p>
     <li><code>responses_per_session</code></li>
     <li><code>duration</code></li>
     <li><code>rate</code></li>
@@ -135,7 +136,8 @@
     <p>
         <code>responses_per_session</code> was determined by the number of unique times, or rows per id and session_id. <code>duration</code> was determined
         by ordering the rows with respect to the time column and calculating the distince between the last time and first time by id and session_id. The
-        remaining feature calculations can be found in the R project <a class="subtle-link" href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/simulateData_andPrepUpdated.R">simulateData_andPrepUpdated.R</a>
+        remaining feature calculations can be found in the R 
+        project <a class="subtle-link" href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/simulateData_andPrepUpdated.R">simulateData_andPrepUpdated.R</a>.
     </p>
 
     </section>
