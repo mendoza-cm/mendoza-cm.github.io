@@ -99,6 +99,20 @@
         <p>
             Humans are simulated with more variable and normally distributed response intervals, while bots produce faster, more consistent responses following an exponential distribution. These assumptions are deliberately simple—they are not meant to reflect real-world bot detection methods but to illustrate how even basic behavioral patterns can be used to construct predictive models.
         </p>
+
+        <h2>Feature Development</h2>
+        <p>
+            The functions listed above simulate data with four columns: 
+            <ul>
+                <li><code>id</code></li>
+                <li><code>session_id</code></li>
+                <li><code>type</code></li>
+                <li><code>time</code></li>
+            </ul>
+        </p>
+        Where there are several rows corresponding with different times for each id and session; type, bot or human, is also dependent on id and session. We generate five 
+        features immediately, four will be used for modeling and one is for visualization. First we generate number of responses per session. An older version may still contain
+        clicks per session (clicks_per_session), but considering the different methods for screen involvment, <em>response</em> was determined as the more responsible choice.
     </section>
 
     <section>
