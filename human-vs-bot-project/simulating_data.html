@@ -113,6 +113,21 @@
         Where there are several rows corresponding with different times for each id and session; type, bot or human, is also dependent on id and session. We generate five 
         features immediately, four will be used for modeling and one is for visualization. First we generate number of responses per session. An older version may still contain
         clicks per session (clicks_per_session), but considering the different methods for screen involvment, <em>response</em> was determined as the more responsible choice.
+        The resposne variable along with the other engineered features are seen below:
+
+        <ul>
+            <li><code>responses_per_session</code></li>
+            <li><code>duration</code></li>
+            <li><code>rate</code></li>
+            <li><code>rate_10min</code></li>
+            <li><code>inter_response</code></li>
+        </ul>
+        <p>
+            As mentioned, numerous rows correspond with each id and session. The time stamps are with repsonse to <code>response</code> times;
+            that corresponds with a mouse click, pen or touch screen response, or any movement made by a user that caused a <em>response</em> in
+            the application being used. A response could correspond to closing out or activating other links or screen control such as scrolling
+            and screen size adjustments.
+        </p>
     </section>
 
     <section>
