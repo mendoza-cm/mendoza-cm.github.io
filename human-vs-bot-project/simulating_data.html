@@ -101,33 +101,29 @@
         </p>
 
         <h2>Feature Development</h2>
-        <p>
-            The functions listed above simulate data with four columns: 
-            <ul>
-                <li><code>id</code></li>
-                <li><code>session_id</code></li>
-                <li><code>type</code></li>
-                <li><code>time</code></li>
-            </ul>
-        </p>
-        Where there are several rows corresponding with different times for each id and session; type, bot or human, is also dependent on id and session. We generate five 
-        features immediately, four will be used for modeling and one is for visualization. First we generate number of responses per session. An older version may still contain
-        clicks per session (clicks_per_session), but considering the different methods for screen involvment, <em>response</em> was determined as the more responsible choice.
-        The resposne variable along with the other engineered features are seen below:
+<p>
+    The functions above generate data with four key columns:
+</p>
+<ul>
+    <li><code>id</code></li>
+    <li><code>session_id</code></li>
+    <li><code>type</code></li>
+    <li><code>time</code></li>
+</ul>
+<p>
+    Each <code>id</code> and <code>session_id</code> pair includes multiple timestamps representing individual user actions. The <code>type</code> (human or bot) is consistent within a session. From this base, we engineered five features: four for modeling and one primarily for visualization. 
+</p>
+<ul>
+    <li><code>responses_per_session</code></li>
+    <li><code>duration</code></li>
+    <li><code>rate</code></li>
+    <li><code>rate_10min</code></li>
+    <li><code>inter_response</code></li>
+</ul>
+<p>
+    While earlier drafts referred to <code>clicks_per_session</code>, we transitioned to <code>responses_per_session</code> to better capture varied user input—such as mouse movement, screen touches, or scrolling. This broader definition reflects the kind of behaviors we'd expect in realistic sessions and leaves room for richer analysis in future iterations.
+</p>
 
-        <ul>
-            <li><code>responses_per_session</code></li>
-            <li><code>duration</code></li>
-            <li><code>rate</code></li>
-            <li><code>rate_10min</code></li>
-            <li><code>inter_response</code></li>
-        </ul>
-        <p>
-            As mentioned, numerous rows correspond with each id and session. The time stamps are with repsonse to <code>response</code> times;
-            that corresponds with a mouse click, pen or touch screen response, or any movement made by a user that caused a <em>response</em> in
-            the application being used. A response could correspond to closing out or activating other links or screen control such as scrolling
-            and screen size adjustments.
-        </p>
     </section>
 
     <section>
