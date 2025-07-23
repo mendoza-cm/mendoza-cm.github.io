@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,42 +11,37 @@
       background-color: #f5f5f5;
       color: #222;
     }
-
     h1 {
       font-size: 2.5em;
       margin-bottom: 0;
+      color: #2a2a2a;
     }
-
     h2 {
       color: #333;
       margin-top: 0.5em;
     }
-
     h3 {
       margin-bottom: 0;
+      color: #0077aa;
     }
-
     ul.indented {
       margin-top: 0.2em;
       margin-left: 1.5em;
       list-style-type: circle;
     }
-
     a {
       color: #0077aa;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
+      color: #005580;
     }
-
     hr {
       border: none;
       border-top: 1px solid #ccc;
-      margin: 3em 0 2em;
+      margin: 2em 0;
     }
-
     .section-header {
       font-size: 1.6em;
       font-weight: bold;
@@ -55,57 +49,57 @@
       margin-top: 2em;
       margin-bottom: 0.5em;
     }
+    .about {
+      margin-bottom: 2em;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    .banner {
+      width: 100%;
+      height: 150px;
+      background: url('https://via.placeholder.com/800x150?text=GWTW+Inspired') no-repeat center;
+      background-size: cover;
+      margin-bottom: 2em;
+    }
+    .footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #555;
+    }
   </style>
 </head>
-
 <body>
+  <div class="banner"></div>
   <h1>Christina Mendoza</h1>
+  <div class="about">
+    <p>BA in English with a passion for narrative storytelling, inspired by <i>Gone with the Wind</i>’s complex dynamics. My R/SQL analytics (20% PPV boost at Sardine) enhance data-driven campaigns for advertising. I craft compelling stories and actionable insights for creative impact.</p>
+  </div>
   <h2>My Projects</h2>
 
   <div class="section-header">Data Science & Analysis</div>
-
-  <h3>
-    <a href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/README.md" target="_blank">
-      Human vs. Bot: A Classification Project
-    </a>
-  </h3>
+  <h3><a href="https://github.com/mendoza-cm/Human-vs-Bot/blob/main/README.md" target="_blank">Human vs. Bot: A Classification Project</a></h3>
   <ul class="indented">
     <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/simulating_data.html" target="_blank">Simulating Behavior (Part 1)</a></li>
     <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/logistic_regression.html" target="_blank">Logistic Regression (Part 2)</a></li>
     <li><a href="https://mendoza-cm.github.io/human-vs-bot-project/machine_learning.html" target="_blank">ML Models: SVM & RF (Part 3)</a></li>
   </ul>
 
-  <h3>
-    <a href="https://github.com/mendoza-cm/GroupRiskScoreDifferences/blob/main/README.md" target="_blank">
-      2016 ASC Shiny App
-    </a>
-  </h3>
+  <h3><a href="https://github.com/mendoza-cm/GroupRiskScoreDifferences/blob/main/README.md" target="_blank">2016 ASC Shiny App</a></h3>
   <ul class="indented">
     <li><a href="https://app-1.shinyapps.io/Noise/" target="_blank">Interactive Conference App</a></li>
   </ul>
 
   <hr />
 
-  <div class="section-header">Creative Writing & Script Blog</div>
-
-  <h3>
-    <a href="https://github.com/mendoza-cm/goneWithTheWind/blob/main/README.md" target="_blank">
-      Gone With the Wind: Character & Script Blog
-    </a>
-  </h3>
+  <div class="section-header">Creative Writing & Scripts</div>
+  <h3><a href="https://github.com/mendoza-cm/goneWithTheWind/blob/main/README.md" target="_blank">Gone With the Wind: Character & Script Blog</a></h3>
   <ul class="indented">
+    <li><a href="https://mendoza-cm.github.io/goneWithTheWind/" target="_blank">Melanie’s Misread Kindness Script (50 words): Melanie’s warm compliments spark Scarlett’s awkward blush, while Rhett chuckles at the misinterpretation.</a></li>
     <li><a href="https://mendoza-cm.github.io/goneWithTheWind/" target="_blank">Project Page (under construction)</a></li>
   </ul>
 
-  <!-- Uncomment if/when you want to display cartoon images
-  <div class="cartoon">
-    <ul>
-      <img src="https://mendoza-cm.github.io/myCartoon1.PNG" alt="Cartoon of confused family dynamics and ML" />
-      <img src="https://mendoza-cm.github.io/myCartoon2.PNG" />
-      <img src="https://mendoza-cm.github.io/myCartoon3.PNG" />
-    </ul>
+  <div class="footer">
+    <p>Contact: <a href="mailto:christina.mendoza@example.com">christina.mendoza@example.com</a> | <a href="https://linkedin.com/in/mendoza-cm" target="_blank">LinkedIn</a></p>
   </div>
-  -->
 </body>
-
 </html>
