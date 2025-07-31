@@ -82,16 +82,16 @@
         <p>&copy; 2025 C. Mendoza. Built using GitHub Pages.</p>
     </footer>
     <script>
-  
         const posts = [
-            { id: 'post-intro', url: 'https://raw.githubusercontent.com/mendoza-cm/goneWithTheWind/main/Intro.md', title: 'Intro - July 30, 2025' }
-            // Add more, e.g., { id: 'post-chapter32', url: '../../GWTW/posts/chapter32.md', title: 'Chapter 32 - August 06, 2025' }
+            { id: 'post-intro', url: '../../goneWithTheWind/posts/intro.md', title: 'Intro - July 30, 2025' }
+            // Add more, e.g., { id: 'post-chapter32', url: '../../goneWithTheWind/posts/chapter32.md', title: 'Chapter 32 - August 06, 2025' }
         ];
 
         function loadPosts() {
             const contentDiv = document.getElementById('content');
             contentDiv.innerHTML = '';
-            posts.forEach(post => {
+            // Reverse to show newest posts first
+            posts.slice().reverse().forEach(post => {
                 fetch(post.url)
                     .then(response => response.text())
                     .then(data => {
