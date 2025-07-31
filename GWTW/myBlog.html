@@ -78,34 +78,34 @@ nav a:hover {
         <p>&copy; 2025 C. Mendoza. Built using GitHub Pages.</p>
     </footer>
     <script>
-  
-        const posts = [
-            { id: 'post-intro', url: 'https://raw.githubusercontent.com/mendoza-cm/goneWithTheWind/main/Intro.md', title: 'Intro - July 30, 2025' }
-            // Add more, e.g., { id: 'post-chapter32', url: '../../GWTW/posts/chapter32.md', title: 'Chapter 32 - August 06, 2025' }
-        ];
+    const posts = [
+        { id: 'post-intro', url: 'https://raw.githubusercontent.com/mendoza-cm/goneWithTheWind/main/Intro.md', title: 'Intro - July 30, 2025' }
+        // Add more posts here
+    ];
 
-        function loadPosts() {
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = '';
-            posts.forEach(post => {
-                fetch(post.url)
-                    .then(response => response.text())
-                    .then(data => {
-                        const postDiv = document.createElement('div');
-                        postDiv.className = 'post';
-                        postDiv.id = post.id;
-                        postDiv.innerHTML = <h2>${post.title}</h2>${marked.parse(data)};
-                        contentDiv.appendChild(postDiv);
-                    })
-                    .catch(error => {
-                        contentDiv.innerHTML += <p>Error loading ${post.title}.</p>;
-                        console.error('Error:', error);
-                    });
-            });
-        }
+    function loadPosts() {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = '';
+        posts.forEach(post => {
+            fetch(post.url)
+                .then(response => response.text())
+                .then(data => {
+                    const postDiv = document.createElement('div');
+                    postDiv.className = 'post';
+                    postDiv.id = post.id;
+                    postDiv.innerHTML = `<h2>${post.title}</h2>${marked.parse(data)}`;
+                    contentDiv.appendChild(postDiv);
+                })
+                .catch(error => {
+                    contentDiv.innerHTML += `<p>Error loading ${post.title}.</p>`;
+                    console.error('Error:', error);
+                });
+        });
+    }
 
-        // Load all posts on page load
-        loadPosts();
-    </script>
+    // Load all posts on page load
+    loadPosts();
+</script>
+
 </body>
 </html>
