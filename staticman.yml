@@ -1,7 +1,7 @@
 comments:
   allowedFields: ["title", "email", "message"]
   branch: "main"
-  commitMessage: "New comment by {fields.name}"
+  commitMessage: "New comment by {fields.title}"
   filename: "comment-{@timestamp}"
   format: "yaml"
   moderation: true
