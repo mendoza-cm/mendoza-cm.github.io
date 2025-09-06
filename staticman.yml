@@ -1,11 +1,18 @@
 comments:
-  allowedFields: ["title", "email", "message"]
+  allowedFields: ["name", "email", "url", "message"]
   branch: "main"
-  commitMessage: "New comment by {fields.title}"
+  commitMessage: "New comment added"
   filename: "comment-{@timestamp}"
   format: "yaml"
+  path: "_data/comments/GWTW"
   moderation: true
-  path: "_data/comments/{options.slug}"
-  requiredFields: ["message"]
+  requiredFields: ["name", "message"]
   transforms:
     email: md5
+  github:
+    enabled: true
+    repo: "mendoza-cm/mendoza-cm.github.io"
+    branch: "main"
+    owner: "mendoza-cm"
+  staticman:
+    endpoint: "https://mendoza-cm-staticman-504dc5095cc1.herokuapp.com/v3/entry/github/"
