@@ -4,7 +4,7 @@ comments:
   commitMessage: "New comment added"
   filename: "comment-{@timestamp}"
   format: "yaml"
-  path: "_data/comments/GWTW"
+  path: "_data/comments"
   moderation: true
   requiredFields: ["name", "message"]
   transforms:
