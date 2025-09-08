@@ -15,5 +15,5 @@ comments:
     branch: "main"
     owner: "mendoza-cm"
   staticman:
-  endpoint: "https://mendoza-cm-staticman-504dc5095cc1.herokuapp.com/v3/entry/github/mendoza-cm/mendoza-cm.github.io/main/comments"
+    endpoint: "https://mendoza-cm-staticman-504dc5095cc1.herokuapp.com/v3/entry/github/mendoza-cm/mendoza-cm.github.io/main/comments"
 
